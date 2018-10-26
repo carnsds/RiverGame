@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoatManager : MonoBehaviour
+//Unity in Action 2nd Edition
+public class FleetManager : MonoBehaviour
 {
 	public List<GameObject> boats;
 
 	private List<BoatController> boatControllers;
 	private int currentSelected;
-	private int lastSelected;
 
 	public void Start()
 	{
 		currentSelected = -1;
-		lastSelected = -1;
 
 		boatControllers = new List<BoatController>();
 
@@ -22,7 +21,7 @@ public class BoatManager : MonoBehaviour
 		 **/
 		for (int i = 0; i < boats.Capacity; i++)
 		{
-			Vector3 rot = new Vector3(0, 0, 90);
+			Vector3 rot = new Vector3(90, 0, 0);
 
 			GameObject inst = Instantiate(boats[i], transform.position, Quaternion.Euler(rot), transform);
 			inst.name = "Boat" + i;
@@ -38,18 +37,17 @@ public class BoatManager : MonoBehaviour
 	}
 
 	/**
-	 * This marks the ID of the currently selected boat. If there is
-	 * a previous it's saved to compare so we only deselect the boat
-	 * if a new one is being selected.
+	 * This marks the ID of the currently selected boat. If no
+	 * boat is selected (currentSelected = -1), then we only
+	 * need to set currentSelected to the ID.
 	 * 
 	 * @param id The ID of the boat we're selecting
 	 **/
 	public void setCurrentSelected(int id)
 	{
-		if (lastSelected != currentSelected)
+		if (currentSelected != id && currentSelected != -1)
 		{
 			findBoatWithID(currentSelected).tag = "Unselected";
-			lastSelected = currentSelected;
 			currentSelected = id;
 		}
 		else

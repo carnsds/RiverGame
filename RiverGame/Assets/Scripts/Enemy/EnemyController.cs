@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-	public int health;
-	
+	[SerializeField] private int health;
+
 	public void Update()
 	{
 		if (health <= 0)

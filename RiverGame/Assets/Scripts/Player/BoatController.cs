@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class BoatController : MonoBehaviour
 {
-	public int boatHealth;
+	[SerializeField] private int health;
+	[SerializeField] private int defense;
+	[SerializeField] private float speed;
 
 	private int id;
 
-	public void Start()
-	{
-		
-	}
-	
 	public void Update()
 	{
-		if (boatHealth <= 0)
+		if (tag.Equals("Selected"))
+		{
+			transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime,
+											Input.GetAxisRaw("Vertical") * speed * Time.deltaTime,
+											0));
+		}
+		else
+		{
+			transform.Translate(new Vector3 (0, speed * Time.deltaTime, 0));
+		}
+
+		if (health <= 0)
 		{
 			Destroy(gameObject);
 		}
@@ -27,7 +35,7 @@ public class BoatController : MonoBehaviour
 	public void OnMouseDown()
 	{
 		tag = "Selected";
-		GetComponentInParent<BoatManager>().setCurrentSelected(id);
+		GetComponentInParent<FleetManager>().setCurrentSelected(id);
 	}
 
 	public void setID(int id)
@@ -38,5 +46,10 @@ public class BoatController : MonoBehaviour
 	public int getID()
 	{
 		return id;
+	}
+
+	public bool isSelected()
+	{
+		return GetComponentInParent<FleetManager>().getCurrentSelected() == id;
 	}
 }
