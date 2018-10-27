@@ -74,7 +74,7 @@ public class FleetManager : MonoBehaviour
 	{
 		foreach (GameObject boat in boats)
 		{
-			if (boat.GetComponent<BoatController>().getID() == id)
+			if (boat != null && boat.GetComponent<BoatController>().getID() == id)
 			{
 				return boat;
 			}

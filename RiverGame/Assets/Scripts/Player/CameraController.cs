@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 	private FleetManager fleet;
-	private GameObject lastBoat;
+	private GameObject followBoat;
 
 	public void Start()
 	{
@@ -14,24 +14,38 @@ public class CameraController : MonoBehaviour
 
 	public void Update()
 	{
+		followBoat = boatToFollow();
+	}
+
+	public GameObject boatToFollow()
+	{
 		foreach (GameObject boat in fleet.boats)
 		{
-			if (boat != null && lastBoat == null)
+			if (boat != null)
 			{
-				lastBoat = boat;
-			}
-			else if (boat != null && boat.transform.position.z < lastBoat.transform.position.z)
-			{
-				lastBoat = boat;
+				if (followBoat == null)
+				{
+					return boat;
+				}
+				/*else if (boat.GetComponent<BoatController>().isSelected())
+				{
+					return boat;
+				}*/
+				else if (boat.transform.position.z < followBoat.transform.position.z)
+				{
+					return boat;
+				}
 			}
 		}
+
+		return null;
 	}
 
 	public void FixedUpdate()
 	{
-		if (lastBoat != null)
+		if (followBoat != null)
 		{
-			Vector3 boatPos = lastBoat.transform.position;
+			Vector3 boatPos = followBoat.transform.position;
 			Vector3 newPos = new Vector3(boatPos.x, 30, boatPos.z);
 			transform.position = Vector3.Lerp(transform.position, newPos, 2f);
 		}

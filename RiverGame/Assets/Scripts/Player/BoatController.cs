@@ -18,13 +18,12 @@ public class BoatController : MonoBehaviour
 											Input.GetAxisRaw("Vertical") * speed * Time.deltaTime,
 											0));
 		}
-		//else
-		//{
-		//	transform.Translate(new Vector3 (0, speed * Time.deltaTime, 0));
-		//}
 
 		if (health <= 0)
 		{
+			if (isSelected()) {
+				GetComponentInParent<FleetManager>().setCurrentSelected(-1);
+			}
 			Destroy(gameObject);
 		}
 	}
