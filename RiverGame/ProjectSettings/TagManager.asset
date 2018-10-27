@@ -8,6 +8,7 @@ TagManager:
   - Selected
   - Unselected
   - Current
+  - Obstacle
   layers:
   - Default
   - TransparentFX

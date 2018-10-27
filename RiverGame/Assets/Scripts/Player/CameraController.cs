@@ -16,11 +16,11 @@ public class CameraController : MonoBehaviour
 	{
 		foreach (GameObject boat in fleet.boats)
 		{
-			if (lastBoat == null)
+			if (boat != null && lastBoat == null)
 			{
 				lastBoat = boat;
 			}
-			else if (boat.transform.position.z < lastBoat.transform.position.z)
+			else if (boat != null && boat.transform.position.z < lastBoat.transform.position.z)
 			{
 				lastBoat = boat;
 			}
@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
 		if (lastBoat != null)
 		{
 			Vector3 boatPos = lastBoat.transform.position;
-			Vector3 newPos = new Vector3(0, 30, boatPos.z);
+			Vector3 newPos = new Vector3(boatPos.x, 30, boatPos.z);
 			transform.position = Vector3.Lerp(transform.position, newPos, 2f);
 		}
 	}

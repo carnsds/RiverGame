@@ -18,10 +18,10 @@ public class BoatController : MonoBehaviour
 											Input.GetAxisRaw("Vertical") * speed * Time.deltaTime,
 											0));
 		}
-		else
-		{
-			transform.Translate(new Vector3 (0, speed * Time.deltaTime, 0));
-		}
+		//else
+		//{
+		//	transform.Translate(new Vector3 (0, speed * Time.deltaTime, 0));
+		//}
 
 		if (health <= 0)
 		{
@@ -51,5 +51,25 @@ public class BoatController : MonoBehaviour
 	public bool isSelected()
 	{
 		return GetComponentInParent<FleetManager>().getCurrentSelected() == id;
+	}
+
+	public float getSpeed()
+	{
+		return speed;
+	}
+
+	public void setSpeed(float speed)
+	{
+		this.speed = speed;
+	}
+
+	public int getHealth()
+	{
+		return health;
+	}
+
+	public void setHealth(int health)
+	{
+		this.health = health < 0 ? 0 : health;
 	}
 }

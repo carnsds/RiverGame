@@ -19,13 +19,16 @@ public class FleetManager : MonoBehaviour
 		/**
 		 * Loads our boats into the scene.
 		 **/
+		Vector3 spawn = transform.position;
 		for (int i = 0; i < boats.Capacity; i++)
 		{
 			Vector3 rot = new Vector3(90, 0, 0);
 
 			GameObject inst = Instantiate(boats[i], transform.position, Quaternion.Euler(rot), transform);
 			inst.name = "Boat" + i;
-			inst.transform.position = new Vector3 (Random.Range(-10, 10), 1, Random.Range(-10, 10));
+			inst.transform.position = new Vector3 (Random.Range(spawn.x - 3.5f, spawn.x + 3.5f),
+												   spawn.y,
+												   Random.Range(spawn.z - 3.5f, spawn.z + 3.5f));
 
 			//This replaces the prefab in the List with the actual object.
 			boats[i] = inst;
