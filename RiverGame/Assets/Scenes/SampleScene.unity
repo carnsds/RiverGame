@@ -349,7 +349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  projectile: {fileID: 1961604071}
 --- !u!205 &284768964
 LODGroup:
   m_ObjectHideFlags: 0
@@ -399,6 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ffb665583d3c448a2ca325a6e66e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 1961604071}
 --- !u!1 &301374822
 GameObject:
   m_ObjectHideFlags: 0
