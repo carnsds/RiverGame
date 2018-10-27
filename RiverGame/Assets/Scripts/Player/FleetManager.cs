@@ -12,7 +12,7 @@ public class FleetManager : MonoBehaviour
 
 	public void Start()
 	{
-		currentSelected = -1;
+		currentSelected = 0;
 
 		boatControllers = new List<BoatController>();
 
@@ -37,7 +37,9 @@ public class FleetManager : MonoBehaviour
 			controller.setID(i); //Assigns IDs based on order of instantiation.
 			boatControllers.Add(controller);
 		}
+		boats[0].tag = "Selected";
 	}
+		
 
 	/**
 	 * This marks the ID of the currently selected boat. If no
@@ -48,9 +50,10 @@ public class FleetManager : MonoBehaviour
 	 **/
 	public void setCurrentSelected(int id)
 	{
-		if (currentSelected != id && currentSelected != -1)
+		if (currentSelected != id)
 		{
 			findBoatWithID(currentSelected).tag = "Unselected";
+			findBoatWithID(id).tag = "Selected";
 			currentSelected = id;
 		}
 		else
@@ -62,6 +65,14 @@ public class FleetManager : MonoBehaviour
 	public int getCurrentSelected()
 	{
 		return currentSelected;
+	}
+
+	public void UpdateIDs()
+	{
+		for (int i = 0; i < boats.ToArray ().Length; i++) 
+		{
+			boatControllers[i].setID(i);
+		}
 	}
 
 	/**
@@ -80,5 +91,11 @@ public class FleetManager : MonoBehaviour
 			}
 		}
 		return null;
+	}
+
+	public void RemoveBoat(GameObject boat)
+	{
+		boats.Remove(boat);
+		boatControllers.Remove(boat.GetComponent<BoatController>());
 	}
 }

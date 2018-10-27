@@ -14,4 +14,12 @@ public class ObstacleController : MonoBehaviour
 			boat.setHealth(boat.getHealth() - damage);
 		}
 	}
+
+	public void SetDamage(int damage) {
+		this.damage = damage;
+	}
+
+	public int GetDamage() {
+		return damage;
+	}
 }

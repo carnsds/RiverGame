@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4143357580205358}
   - component: {fileID: 33369901531356606}
   - component: {fileID: 23774225718803434}
-  - component: {fileID: 136774249494481776}
   - component: {fileID: 54035400087268388}
   - component: {fileID: 114685409806806032}
+  - component: {fileID: 65487364410161398}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Unselected
@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1374741106466548}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.3330765, y: 0.50000024, z: -5.424412}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.6616259, y: 3.3, z: -91.27275}
+  m_LocalScale: {x: 1.5489103, y: 2.9654999, z: 4.9393363}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,6 +101,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 1
+--- !u!65 &65487364410161398
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1374741106466548}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2.0000005, z: 1.0000005}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940699}
 --- !u!114 &114685409806806032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,16 +127,3 @@ MonoBehaviour:
   health: 50
   defense: 100
   speed: 4
---- !u!136 &136774249494481776
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1374741106466548}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 2.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

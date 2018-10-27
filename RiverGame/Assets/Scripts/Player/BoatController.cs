@@ -21,9 +21,15 @@ public class BoatController : MonoBehaviour
 
 		if (health <= 0)
 		{
-			if (isSelected()) {
-				GetComponentInParent<FleetManager>().setCurrentSelected(-1);
+			FleetManager fleet = GetComponentInParent<FleetManager>();
+
+			fleet.UpdateIDs();
+			if (isSelected())
+			{
+				fleet.setCurrentSelected(0);
 			}
+
+			fleet.RemoveBoat(gameObject);
 			Destroy(gameObject);
 		}
 	}
@@ -33,7 +39,6 @@ public class BoatController : MonoBehaviour
 	 **/
 	public void OnMouseDown()
 	{
-		tag = "Selected";
 		GetComponentInParent<FleetManager>().setCurrentSelected(id);
 	}
 

@@ -19,26 +19,8 @@ public class CameraController : MonoBehaviour
 
 	public GameObject boatToFollow()
 	{
-		foreach (GameObject boat in fleet.boats)
-		{
-			if (boat != null)
-			{
-				if (followBoat == null)
-				{
-					return boat;
-				}
-				/*else if (boat.GetComponent<BoatController>().isSelected())
-				{
-					return boat;
-				}*/
-				else if (boat.transform.position.z < followBoat.transform.position.z)
-				{
-					return boat;
-				}
-			}
-		}
-
-		return null;
+		int id = fleet.getCurrentSelected();
+		return fleet.findBoatWithID(id);
 	}
 
 	public void FixedUpdate()
