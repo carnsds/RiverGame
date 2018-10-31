@@ -19,12 +19,13 @@ public class RayShooter : MonoBehaviour
 	public void Update()
 	{
 		RaycastHit hit;
-		if(Physics.Raycast(transform.position, transform.right, out hit, 10))
+		if(Physics.SphereCast(new Ray(transform.position, transform.right), 10, out hit))
 		{
-			if (Time.time >= time + 2f)
-			{
-				time = Time.time;
-				Shoot ();
+			if ((hit.collider.CompareTag ("Selected") || hit.collider.CompareTag ("Unselected"))) {
+				if (Time.time >= time + 1f) {
+					time = Time.time;
+					Shoot ();
+				}
 			}
 		}
 	}
