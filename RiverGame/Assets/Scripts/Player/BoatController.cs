@@ -21,16 +21,18 @@ public class BoatController : MonoBehaviour
 
 		if (health <= 0)
 		{
-			FleetManager fleet = GetComponentInParent<FleetManager>();
+			// FleetManager fleet = GetComponentInParent<FleetManager>();
+			// fleet.RemoveBoat(gameObject);
+			// fleet.UpdateIDs();
 
-			fleet.UpdateIDs();
-			if (isSelected())
-			{
-				fleet.setCurrentSelected(0);
-			}
 
-			fleet.RemoveBoat(gameObject);
-			Destroy(gameObject);
+			// if (tag.Equals("Selected"))
+			// {
+			// 	fleet.setCurrentSelected(0);
+			// }
+			// Destroy(gameObject);
+			tag = "Unselected";
+			gameObject.SetActive(false);
 		}
 	}
 

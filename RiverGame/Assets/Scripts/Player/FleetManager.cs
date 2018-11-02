@@ -67,13 +67,14 @@ public class FleetManager : MonoBehaviour
 		return currentSelected;
 	}
 
-	public void UpdateIDs()
-	{
-		for (int i = 0; i < boats.ToArray ().Length; i++) 
-		{
-			boatControllers[i].setID(i);
-		}
-	}
+	// public void UpdateIDs()
+	// {
+	// 	for (int i = 0; i < boats.ToArray ().Length; i++) 
+	// 	{
+	// 		boats[i].name = "Boat" + i;
+	// 		boatControllers[i].setID(i);
+	// 	}
+	// }
 
 	/**
 	 * Looks through the list and returns the boat with the specified ID.
@@ -93,9 +94,9 @@ public class FleetManager : MonoBehaviour
 		return null;
 	}
 
-	public void RemoveBoat(GameObject boat)
-	{
-		boats.Remove(boat);
-		boatControllers.Remove(boat.GetComponent<BoatController>());
-	}
+	// public void RemoveBoat(GameObject boat)
+	// {
+	// 	boatControllers.Remove(boat.GetComponent<BoatController>());
+	// 	boats.Remove(boat);
+	// }
 }

@@ -35,12 +35,16 @@ public class RayShooter : MonoBehaviour
 	public void Shoot(Vector3 target)
 	{
 		//float speed = 0.1f; //projectile.GetComponent<ObstacleController>
-		if (Time.time >= time + 1f) 
+		if (Time.time >= time + 3f) 
 		{
 			time = Time.time;
 			Vector3 pos = new Vector3(transform.position.x + 2f, transform.position.y + 1.5f, transform.position.z);
 			GameObject proj = Instantiate(projectile, pos, Quaternion.identity, transform.parent);
-			proj.GetComponent<ProjectileController>().SetTarget(target);
+			float accuracy = 10f - GetComponent<EnemyController>().GetAccuracy();
+			proj.GetComponent<ProjectileController>().SetTarget(new Vector3(target.x + Random.Range(-accuracy, accuracy),
+																			target.y,
+																			target.z + Random.Range(-accuracy, accuracy)));
+
 		}
 	}
 }

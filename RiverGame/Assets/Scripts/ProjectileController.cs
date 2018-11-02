@@ -6,10 +6,9 @@ public class ProjectileController : ObstacleController
 {
 	private Vector3 target;
 	[SerializeField] private float speed;
-	[SerializeField] private float maxDistance;
 
 
-	void OnCollisionEnter(Collision other)
+	new void OnCollisionEnter(Collision other)
 	{
 		base.OnCollisionEnter(other);
 		Destroy(gameObject);
