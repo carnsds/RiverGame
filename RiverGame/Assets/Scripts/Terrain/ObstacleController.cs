@@ -9,7 +9,7 @@ public class ObstacleController : MonoBehaviour
 	public void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.GetComponent<BoatController>() != null)
-		{
+		{	
 			BoatController boat = other.gameObject.GetComponent<BoatController>();
 			boat.setHealth(boat.getHealth() - damage);
 		}
