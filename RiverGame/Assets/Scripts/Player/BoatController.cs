@@ -7,8 +7,14 @@ public class BoatController : MonoBehaviour
 	[SerializeField] private int health;
 	[SerializeField] private int defense;
 	[SerializeField] private float speed;
+	private List<GameObject> seats;
 
 	private int id;
+
+	public void Start() {
+		//gameObject.GetComponentInChildren<Seats>();
+		//seats = new List<GameObject>();
+	}
 
 	public void Update()
 	{

@@ -38,7 +38,12 @@ public class RayShooter : MonoBehaviour
 		if (Time.time >= time + 3f) 
 		{
 			time = Time.time;
-			Vector3 pos = new Vector3(transform.position.x + 2f, transform.position.y + 1.5f, transform.position.z);
+			Vector3 pos;
+			if(target.x < transform.position.x) {
+				pos = new Vector3(transform.position.x - 2f, transform.position.y + 1.5f, transform.position.z);
+			} else {
+				pos = new Vector3(transform.position.x + 2f, transform.position.y + 1.5f, transform.position.z);
+			}
 			GameObject proj = Instantiate(projectile, pos, Quaternion.identity, transform.parent);
 			float accuracy = 10f - GetComponent<EnemyController>().GetAccuracy();
 			proj.GetComponent<ProjectileController>().SetTarget(new Vector3(target.x + Random.Range(-accuracy, accuracy),
