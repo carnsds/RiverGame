@@ -7,13 +7,19 @@ public class BoatController : MonoBehaviour
 	[SerializeField] private int health;
 	[SerializeField] private int defense;
 	[SerializeField] private float speed;
-	private List<GameObject> seats;
+
+	[SerializeField] private GameObject crewMember;
+	private int numberOfSeats;
+	private const int SEATS_NUM = 0;
+	private const int CREW_NUM = 1;
 
 	private int id;
 
-	public void Start() {
-		//gameObject.GetComponentInChildren<Seats>();
-		//seats = new List<GameObject>();
+	public void Start()
+	{
+		foreach (Transform t in transform.GetChild(SEATS_NUM).GetChild(SEATS_NUM).transform) {
+			Instantiate(crewMember, t.position, Quaternion.identity, transform.GetChild(SEATS_NUM));
+		}
 	}
 
 	public void Update()

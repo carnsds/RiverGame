@@ -6,6 +6,7 @@ public class RayShooter : MonoBehaviour
 {
 	[SerializeField] private GameObject projectile;
 	private Vector3 target;
+	[SerializeField] private List<string> targets;
 	private bool shouldShoot;
 
 	private float time;
@@ -14,6 +15,17 @@ public class RayShooter : MonoBehaviour
 	{
 		Vector3 pos = new Vector3 (transform.position.x + 10, transform.position.y, transform.position.z);
 		time = Time.time;
+
+		if (CompareTag("Enemy"))
+		{
+			targets.Add("Selected");
+			targets.Add("Unselected");
+		}
+		else
+		{
+			targets.Add("Enemy");
+			targets.Add("Enemy");
+		}
 	}
 
 	public void Update()
@@ -22,7 +34,7 @@ public class RayShooter : MonoBehaviour
 		Collider[] objects = Physics.OverlapSphere(transform.position, 10f);
 		for (int i = 0; i < objects.Length; i++) {
 			
-			if ((objects[i].CompareTag ("Selected") || objects[i].CompareTag ("Unselected"))) {
+			if ((objects[i].CompareTag (targets[0]) || objects[i].CompareTag (targets[1]))) {
 				target = objects[i].transform.position;
 				shouldShoot = true;
 				//Debug.Log(objects[i].name + " " + target);
@@ -39,12 +51,9 @@ public class RayShooter : MonoBehaviour
 		{
 			time = Time.time;
 			Vector3 pos;
-			if(target.x < transform.position.x) {
-				pos = new Vector3(transform.position.x - 2f, transform.position.y + 1.5f, transform.position.z);
-			} else {
-				pos = new Vector3(transform.position.x + 2f, transform.position.y + 1.5f, transform.position.z);
-			}
-			GameObject proj = Instantiate(projectile, pos, Quaternion.identity, transform.parent);
+			float x = target.x < transform.position.x ? -2f : 2f; 
+			pos = new Vector3(transform.position.x + x, transform.position.y + 1.5f, transform.position.z);
+			GameObject proj = Instantiate(projectile, pos, Quaternion.identity);
 			float accuracy = 10f - GetComponent<EnemyController>().GetAccuracy();
 			proj.GetComponent<ProjectileController>().SetTarget(new Vector3(target.x + Random.Range(-accuracy, accuracy),
 																			target.y,

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -154,7 +154,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1850006412289572, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
       propertyPath: m_Name
-      value: Enemy (2)
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
@@ -572,41 +572,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1850006412289572, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
       propertyPath: m_Name
-      value: Enemy (1)
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &497923574 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1850006412289572, guid: b057bcdb35bcdc843b3a4ac98b4ee67d,
-    type: 2}
-  m_PrefabInternal: {fileID: 497923573}
---- !u!114 &497923575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 497923574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d987708fedb35408acbd135bbf2b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  accuracy: 5
---- !u!114 &497923576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 497923574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96ffb665583d3c448a2ca325a6e66e48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 1304470150701664, guid: 4864ddaaf51788b4db1c444a346e7daf, type: 2}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,7 +1291,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1850006412289572, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
       propertyPath: m_Name
-      value: Enemy (3)
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4573222882620600, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1330,36 +1300,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1343792980 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1850006412289572, guid: b057bcdb35bcdc843b3a4ac98b4ee67d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1343792979}
---- !u!114 &1343792981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1343792980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d987708fedb35408acbd135bbf2b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  accuracy: 5
---- !u!114 &1343792982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1343792980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96ffb665583d3c448a2ca325a6e66e48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 1304470150701664, guid: 4864ddaaf51788b4db1c444a346e7daf, type: 2}
 --- !u!1 &1498132177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,9 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boats:
-  - {fileID: 1374741106466548, guid: f080ad864ec88b144885f4cd9b4f47cf, type: 2}
   - {fileID: 1374741106466548, guid: 0fecb4be870171f4da6396c491e21ea6, type: 2}
-  - {fileID: 1374741106466548, guid: f080ad864ec88b144885f4cd9b4f47cf, type: 2}
 --- !u!4 &1498132179
 Transform:
   m_ObjectHideFlags: 0
