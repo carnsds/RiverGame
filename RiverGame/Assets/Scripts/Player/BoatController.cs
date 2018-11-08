@@ -27,8 +27,8 @@ public class BoatController : MonoBehaviour
 		if (tag.Equals("Selected"))
 		{
 			transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime,
-											Input.GetAxisRaw("Vertical") * speed * Time.deltaTime,
-											0));
+											0,
+											Input.GetAxisRaw("Vertical") * speed * Time.deltaTime));
 		}
 
 		if (health <= 0)
