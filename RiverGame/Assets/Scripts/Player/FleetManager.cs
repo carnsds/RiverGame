@@ -34,7 +34,7 @@ public class FleetManager : MonoBehaviour
 			boats[i] = inst;
 
 			BoatController controller = (BoatController) inst.GetComponent<BoatController>();
-			controller.setID(i); //Assigns IDs based on order of instantiation.
+			controller.SetID(i); //Assigns IDs based on order of instantiation.
 			boatControllers.Add(controller);
 		}
 		boats[0].tag = "Selected";
@@ -48,12 +48,12 @@ public class FleetManager : MonoBehaviour
 	 * 
 	 * @param id The ID of the boat we're selecting
 	 **/
-	public void setCurrentSelected(int id)
+	public void SetCurrentSelected(int id)
 	{
 		if (currentSelected != id)
 		{
-			findBoatWithID(currentSelected).tag = "Unselected";
-			findBoatWithID(id).tag = "Selected";
+			FindBoatWithID(currentSelected).tag = "Unselected";
+			FindBoatWithID(id).tag = "Selected";
 			currentSelected = id;
 		}
 		else
@@ -62,7 +62,7 @@ public class FleetManager : MonoBehaviour
 		}
 	}
 
-	public int getCurrentSelected()
+	public int GetCurrentSelected()
 	{
 		return currentSelected;
 	}
@@ -82,11 +82,11 @@ public class FleetManager : MonoBehaviour
 	 * @param id The ID of the boat we're searching for.
 	 * @return The boat with the given ID (null if there are none).
 	 **/
-	public GameObject findBoatWithID(int id)
+	public GameObject FindBoatWithID(int id)
 	{
 		foreach (GameObject boat in boats)
 		{
-			if (boat != null && boat.GetComponent<BoatController>().getID() == id)
+			if (boat != null && boat.GetComponent<BoatController>().GetID() == id)
 			{
 				return boat;
 			}

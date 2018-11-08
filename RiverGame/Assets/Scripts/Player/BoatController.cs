@@ -12,13 +12,14 @@ public class BoatController : MonoBehaviour
 	private int numberOfSeats;
 	private const int SEATS_NUM = 0;
 	private const int CREW_NUM = 1;
+	private const int BOAT_NUM = 2;
 
 	private int id;
 
 	public void Start()
 	{
-		foreach (Transform t in transform.GetChild(SEATS_NUM).GetChild(SEATS_NUM).transform) {
-			Instantiate(crewMember, t.position, Quaternion.identity, transform.GetChild(SEATS_NUM));
+		foreach (Transform t in transform.GetChild(SEATS_NUM).transform) {
+			GameObject member = Instantiate(crewMember, new Vector3(t.position.x, t.position.y + 2.5f, t.position.z + 0.5f), Quaternion.identity, transform.GetChild(CREW_NUM));
 		}
 	}
 
@@ -53,50 +54,50 @@ public class BoatController : MonoBehaviour
 	 **/
 	public void OnMouseDown()
 	{
-		GetComponentInParent<FleetManager>().setCurrentSelected(id);
+		GetComponentInParent<FleetManager>().SetCurrentSelected(id);
 	}
 
-	public void setID(int id)
+	public void SetID(int id)
 	{
 		this.id = id;
 	}
 
-	public int getID()
+	public int GetID()
 	{
 		return id;
 	}
 
-	public bool isSelected()
+	public bool IsSelected()
 	{
-		return GetComponentInParent<FleetManager>().getCurrentSelected() == id;
+		return GetComponentInParent<FleetManager>().GetCurrentSelected() == id;
 	}
 
-	public float getSpeed()
+	public float GetSpeed()
 	{
 		return speed;
 	}
 
-	public void setSpeed(float speed)
+	public void SetSpeed(float speed)
 	{
 		this.speed = speed;
 	}
 
-	public int getHealth()
+	public int GetHealth()
 	{
 		return health;
 	}
 
-	public void setHealth(int health)
+	public void SetHealth(int health)
 	{
 		this.health = health < 0 ? 0 : health;
 		StartCoroutine(TakeDamage());
 	}
 	
 	public IEnumerator TakeDamage() {
-		Color oldColor = GetComponent<Renderer>().material.color;
+		Color oldColor = transform.GetChild(BOAT_NUM).GetComponent<Renderer>().material.color;
 
-		GetComponent<Renderer>().material.color = Color.red;
+		transform.GetChild(BOAT_NUM).GetComponent<Renderer>().material.color = Color.red;
 		yield return new WaitForSeconds(0.5f);
-		GetComponent<Renderer>().material.color = oldColor;
+		transform.GetChild(BOAT_NUM).GetComponent<Renderer>().material.color = oldColor;
 	} 
 }

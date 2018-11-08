@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -155,6 +155,10 @@ Prefab:
     - target: {fileID: 1850006412289572, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850006412289572, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
@@ -573,6 +577,10 @@ Prefab:
     - target: {fileID: 1850006412289572, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850006412289572, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
@@ -1219,13 +1227,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 188006, guid: c6b7fb383a3534b039692b5485b6e739,
     type: 2}
   m_PrefabInternal: {fileID: 1737273017}
---- !u!4 &1273625394 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 481554, guid: c6b7fb383a3534b039692b5485b6e739,
-    type: 2}
-  m_PrefabInternal: {fileID: 1737273017}
---- !u!64 &1273625395
-MeshCollider:
+--- !u!136 &1273625392
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1233,11 +1236,15 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 1e50ef3048667495d90210b70c070c6b, type: 3}
+  m_Radius: 0.5
+  m_Height: 5.3958144
+  m_Direction: 1
+  m_Center: {x: -0.34729344, y: 2.7100756, z: -0.45656818}
+--- !u!4 &1273625394 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 481554, guid: c6b7fb383a3534b039692b5485b6e739,
+    type: 2}
+  m_PrefabInternal: {fileID: 1737273017}
 --- !u!114 &1273625396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1296,6 +1303,10 @@ Prefab:
     - target: {fileID: 4573222882620600, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850006412289572, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b057bcdb35bcdc843b3a4ac98b4ee67d, type: 2}
