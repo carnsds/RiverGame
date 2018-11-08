@@ -7,10 +7,16 @@ public class AIController : MonoBehaviour
 	[SerializeField] private int health;
 	[SerializeField] private float accuracy;
 
+	[SerializeField] private int reward;
 	public void Update()
 	{
 		if (health <= 0)
 		{
+			if(tag.Equals("Enemy"))
+			{
+				PlayerStats.points += reward;
+				GameObject.Find("Canvas").GetComponent<GUIController>().UpdateGUI();
+			}
 			Destroy(gameObject);
 		}
 	}

@@ -5,6 +5,7 @@ using UnityEngine;
 //Unity in Action 2nd Edition
 public class FleetManager : MonoBehaviour
 {
+	public static int points;
 	public List<GameObject> boats;
 
 	private List<BoatController> boatControllers;
@@ -15,7 +16,6 @@ public class FleetManager : MonoBehaviour
 		currentSelected = 0;
 
 		boatControllers = new List<BoatController>();
-
 		/**
 		 * Loads our boats into the scene.
 		 **/

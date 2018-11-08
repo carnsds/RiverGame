@@ -11,7 +11,10 @@ public class ProjectileController : ObstacleController
 	new void OnCollisionEnter(Collision other)
 	{
 		base.OnCollisionEnter(other);
-		Destroy(gameObject);
+		if (!other.collider.CompareTag(tag))
+		{
+			Destroy(gameObject);
+		}
 	}
 
 	public void Update() {

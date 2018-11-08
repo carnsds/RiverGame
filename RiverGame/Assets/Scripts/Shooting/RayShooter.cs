@@ -5,6 +5,7 @@ using UnityEngine;
 public class RayShooter : MonoBehaviour
 {
 	[SerializeField] private GameObject projectile;
+	[SerializeField] private float range;
 
 	private List<string> targets;
 	private Vector3 target;
@@ -34,7 +35,7 @@ public class RayShooter : MonoBehaviour
 	public void Update()
 	{
 		shouldShoot = false;
-		Collider[] objects = Physics.OverlapSphere(transform.position, 10f);
+		Collider[] objects = Physics.OverlapSphere(transform.position, range);
 		for (int i = 0; i < objects.Length; i++) {
 			
 			if ((objects[i].CompareTag (targets[0]) || objects[i].CompareTag (targets[1]))) {

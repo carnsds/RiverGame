@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1304470150701664, guid: 4864ddaaf51788b4db1c444a346e7daf, type: 2}
+  range: 8
   interval: 3
 --- !u!114 &114881265757056976
 MonoBehaviour:
@@ -112,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   accuracy: 5
+  reward: 10
 --- !u!136 &136183055044696594
 CapsuleCollider:
   m_ObjectHideFlags: 1
