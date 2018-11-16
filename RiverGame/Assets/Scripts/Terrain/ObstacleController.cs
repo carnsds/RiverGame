@@ -13,10 +13,10 @@ public class ObstacleController : MonoBehaviour
 			BoatController boat = other.gameObject.GetComponent<BoatController>();
 			boat.SetHealth(boat.GetHealth() - damage);
 		}
-		else if (other.gameObject.GetComponent<AIController>() != null)
+		else if (other.gameObject.GetComponent<EnemyController>() != null)
 		{
-			AIController ai = other.gameObject.GetComponent<AIController>();
-			ai.SetHealth(ai.GetHealth() - damage);
+			EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
+			enemy.SetHealth(enemy.GetHealth() - damage);
 		}
 	}
 

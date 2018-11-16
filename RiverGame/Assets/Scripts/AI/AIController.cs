@@ -6,11 +6,10 @@ public class AIController : MonoBehaviour
 {
 	[SerializeField] private int health;
 	[SerializeField] private float accuracy;
-
 	[SerializeField] private int reward;
 	public void Update()
 	{
-		if (health <= 0)
+		if (health == 0)
 		{
 			if(tag.Equals("Enemy"))
 			{
@@ -43,4 +42,5 @@ public class AIController : MonoBehaviour
 	public float GetAccuracy() {
 		return accuracy;
 	}
+
 }
