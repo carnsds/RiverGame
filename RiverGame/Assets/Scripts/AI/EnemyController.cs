@@ -26,7 +26,7 @@ public class EnemyController : AIController
                 return;
             }
         }
-		transform.Translate(transform.right * speed * Time.deltaTime);
+		transform.Translate(speed * Time.deltaTime, 0f, 0f);
     }
 
     public float GetSpeed()
