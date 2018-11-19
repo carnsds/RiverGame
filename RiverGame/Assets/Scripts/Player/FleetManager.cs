@@ -26,9 +26,12 @@ public class FleetManager : MonoBehaviour
 
 			GameObject inst = Instantiate(boats[i], transform.position, Quaternion.Euler(rot), transform);
 			inst.name = "Boat" + i;
-			inst.transform.position = new Vector3 (Random.Range(spawn.x - 3.5f, spawn.x + 3.5f),
-												   spawn.y,
-												   Random.Range(spawn.z - 3.5f, spawn.z + 3.5f));
+			{
+				inst.transform.position = new Vector3 (spawn.x + (i * 4f),
+					spawn.y,
+					Random.Range (spawn.z - 3.5f, spawn.z + 3.5f));
+			}
+			
 
 			//This replaces the prefab in the List with the actual object.
 			boats[i] = inst;

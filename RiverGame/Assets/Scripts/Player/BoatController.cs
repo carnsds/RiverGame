@@ -93,7 +93,8 @@ public class BoatController : MonoBehaviour
 		StartCoroutine(TakeDamage());
 	}
 	
-	public IEnumerator TakeDamage() {
+	public IEnumerator TakeDamage() 
+	{
 		Color oldColor = transform.GetChild(BOAT_NUM).GetComponent<Renderer>().material.color;
 
 		transform.GetChild(BOAT_NUM).GetComponent<Renderer>().material.color = Color.red;
