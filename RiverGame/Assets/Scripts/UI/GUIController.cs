@@ -20,7 +20,10 @@ public class GUIController : MonoBehaviour
 	public void UpdateSelected()
 	{
 		GameObject boat = GameObject.FindGameObjectWithTag("Selected");
-		currentBoatName.text = boat.name;
-		currentBoatHealth.text = "Health: " + boat.GetComponent<BoatController>().GetHealth();
+		if (boat != null) 
+		{
+			currentBoatName.text = boat.name;
+			currentBoatHealth.text = "Health: " + boat.GetComponent<BoatController> ().GetHealth ();
+		}
 	}
 }
