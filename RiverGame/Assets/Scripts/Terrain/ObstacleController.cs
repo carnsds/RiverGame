@@ -8,10 +8,19 @@ public class ObstacleController : MonoBehaviour
 
 	public void OnCollisionEnter(Collision other)
 	{
-		if (other.gameObject.GetComponent<BoatController>() != null)
-		{	
-			BoatController boat = other.gameObject.GetComponent<BoatController>();
-			boat.SetHealth(boat.GetHealth() - damage);
+		if (other.transform.CompareTag("Player"))
+		{
+			if (other.gameObject.GetComponent<CrewController>() != null)
+			{
+				CrewController crew = other.gameObject.GetComponent<CrewController>();
+				crew.SetHealth(crew.GetHealth() - damage);
+			}
+			else
+			{
+				print("Entering this");
+				BoatController boat = other.gameObject.GetComponentInParent<BoatController>();
+				boat.SetHealth(boat.GetHealth() - damage);
+			}
 		}
 		else if (other.gameObject.GetComponent<EnemyController>() != null)
 		{

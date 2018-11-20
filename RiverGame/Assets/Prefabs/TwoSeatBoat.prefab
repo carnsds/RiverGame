@@ -38,9 +38,10 @@ GameObject:
   - component: {fileID: 4450769203521470}
   - component: {fileID: 33689680080669092}
   - component: {fileID: 23068103545277828}
+  - component: {fileID: 65864786540205492}
   m_Layer: 0
   m_Name: Boat Body
-  m_TagString: Unselected
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +167,7 @@ GameObject:
   - component: {fileID: 4393396921320118}
   - component: {fileID: 114822057602008100}
   - component: {fileID: 54189898224377268}
-  - component: {fileID: 65700461275433398}
+  - component: {fileID: 65790545034992736}
   m_Layer: 0
   m_Name: TwoSeatBoat
   m_TagString: Untagged
@@ -224,7 +225,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882077335982234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.003416, y: 2.0000005, z: -34.821865}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4523270122845770}
@@ -538,7 +539,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 1
---- !u!65 &65700461275433398
+--- !u!65 &65790545034992736
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -550,6 +551,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 1, z: 8}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65864786540205492
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1226164073824442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 4}
+  m_Center: {x: 0, y: 0, z: -1.5}
 --- !u!114 &114822057602008100
 MonoBehaviour:
   m_ObjectHideFlags: 1

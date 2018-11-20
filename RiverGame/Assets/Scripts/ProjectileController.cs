@@ -17,18 +17,18 @@ public class ProjectileController : ObstacleController
 		}
 	}
 
-	public void Update() {
-
+	public void Update()
+	{
 		transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-		if(transform.position == target && gameObject != null) {
+		if(transform.position == target && gameObject != null)
+		{
 			Destroy(gameObject);
 		}
 
 	}
 
-	public void SetTarget(Vector3 target) {
+	public void SetTarget(Vector3 target)
+	{
 		this.target = target;
-
 	}
-
 }

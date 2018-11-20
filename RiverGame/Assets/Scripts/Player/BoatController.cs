@@ -55,6 +55,7 @@ public class BoatController : MonoBehaviour
 	public void OnMouseDown()
 	{
 		GetComponentInParent<FleetManager>().SetCurrentSelected(id);
+		GameObject.Find("Canvas").GetComponent<GUIController>().UpdateSelected();
 	}
 
 	public void SetID(int id)
@@ -90,6 +91,8 @@ public class BoatController : MonoBehaviour
 	public void SetHealth(int health)
 	{
 		this.health = health < 0 ? 0 : health;
+		GameObject.Find("Canvas").GetComponent<GUIController>().UpdateSelected();
+
 		StartCoroutine(TakeDamage());
 	}
 	
@@ -100,5 +103,5 @@ public class BoatController : MonoBehaviour
 		transform.GetChild(BOAT_NUM).GetComponent<Renderer>().material.color = Color.red;
 		yield return new WaitForSeconds(0.5f);
 		transform.GetChild(BOAT_NUM).GetComponent<Renderer>().material.color = oldColor;
-	} 
+	}
 }

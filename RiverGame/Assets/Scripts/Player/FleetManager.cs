@@ -41,6 +41,7 @@ public class FleetManager : MonoBehaviour
 			boatControllers.Add(controller);
 		}
 		boats[0].tag = "Selected";
+		GameObject.Find("Canvas").GetComponent<GUIController>().UpdateSelected();
 	}
 		
 
