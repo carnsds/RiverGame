@@ -5,6 +5,7 @@ using UnityEngine;
 //Unity in Action 2nd Edition
 public class FleetManager : MonoBehaviour
 {
+	public static int points;
 	public List<GameObject> boats;
 
 	private List<BoatController> boatControllers;
@@ -15,7 +16,6 @@ public class FleetManager : MonoBehaviour
 		currentSelected = 0;
 
 		boatControllers = new List<BoatController>();
-
 		/**
 		 * Loads our boats into the scene.
 		 **/
@@ -26,18 +26,22 @@ public class FleetManager : MonoBehaviour
 
 			GameObject inst = Instantiate(boats[i], transform.position, Quaternion.Euler(rot), transform);
 			inst.name = "Boat" + i;
-			inst.transform.position = new Vector3 (Random.Range(spawn.x - 3.5f, spawn.x + 3.5f),
-												   spawn.y,
-												   Random.Range(spawn.z - 3.5f, spawn.z + 3.5f));
+			{
+				inst.transform.position = new Vector3 (spawn.x + (i * 4f),
+					spawn.y,
+					Random.Range (spawn.z - 3.5f, spawn.z + 3.5f));
+			}
+			
 
 			//This replaces the prefab in the List with the actual object.
 			boats[i] = inst;
 
 			BoatController controller = (BoatController) inst.GetComponent<BoatController>();
-			controller.setID(i); //Assigns IDs based on order of instantiation.
+			controller.SetID(i); //Assigns IDs based on order of instantiation.
 			boatControllers.Add(controller);
 		}
 		boats[0].tag = "Selected";
+		GameObject.Find("Canvas").GetComponent<GUIController>().UpdateSelected();
 	}
 		
 
@@ -48,12 +52,12 @@ public class FleetManager : MonoBehaviour
 	 * 
 	 * @param id The ID of the boat we're selecting
 	 **/
-	public void setCurrentSelected(int id)
+	public void SetCurrentSelected(int id)
 	{
 		if (currentSelected != id)
 		{
-			findBoatWithID(currentSelected).tag = "Unselected";
-			findBoatWithID(id).tag = "Selected";
+			FindBoatWithID(currentSelected).tag = "Unselected";
+			FindBoatWithID(id).tag = "Selected";
 			currentSelected = id;
 		}
 		else
@@ -62,18 +66,19 @@ public class FleetManager : MonoBehaviour
 		}
 	}
 
-	public int getCurrentSelected()
+	public int GetCurrentSelected()
 	{
 		return currentSelected;
 	}
 
-	public void UpdateIDs()
-	{
-		for (int i = 0; i < boats.ToArray ().Length; i++) 
-		{
-			boatControllers[i].setID(i);
-		}
-	}
+	// public void UpdateIDs()
+	// {
+	// 	for (int i = 0; i < boats.ToArray ().Length; i++) 
+	// 	{
+	// 		boats[i].name = "Boat" + i;
+	// 		boatControllers[i].setID(i);
+	// 	}
+	// }
 
 	/**
 	 * Looks through the list and returns the boat with the specified ID.
@@ -81,11 +86,11 @@ public class FleetManager : MonoBehaviour
 	 * @param id The ID of the boat we're searching for.
 	 * @return The boat with the given ID (null if there are none).
 	 **/
-	public GameObject findBoatWithID(int id)
+	public GameObject FindBoatWithID(int id)
 	{
 		foreach (GameObject boat in boats)
 		{
-			if (boat != null && boat.GetComponent<BoatController>().getID() == id)
+			if (boat != null && boat.GetComponent<BoatController>().GetID() == id)
 			{
 				return boat;
 			}
@@ -93,9 +98,9 @@ public class FleetManager : MonoBehaviour
 		return null;
 	}
 
-	public void RemoveBoat(GameObject boat)
-	{
-		boats.Remove(boat);
-		boatControllers.Remove(boat.GetComponent<BoatController>());
-	}
+	// public void RemoveBoat(GameObject boat)
+	// {
+	// 	boatControllers.Remove(boat.GetComponent<BoatController>());
+	// 	boats.Remove(boat);
+	// }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Unselected
   - Current
   - Obstacle
+  - Seats
   layers:
   - Default
   - TransparentFX

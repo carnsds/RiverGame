@@ -14,13 +14,13 @@ public class CameraController : MonoBehaviour
 
 	public void Update()
 	{
-		followBoat = boatToFollow();
+		followBoat = BoatToFollow();
 	}
 
-	public GameObject boatToFollow()
+	public GameObject BoatToFollow()
 	{
-		int id = fleet.getCurrentSelected();
-		return fleet.findBoatWithID(id);
+		int id = fleet.GetCurrentSelected();
+		return fleet.FindBoatWithID(id);
 	}
 
 	public void FixedUpdate()
