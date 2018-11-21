@@ -11,6 +11,8 @@ public class GUIController : MonoBehaviour
 	//Currently Selected Boat
 	[SerializeField] private Text currentBoatName;
 	[SerializeField] private Text currentBoatHealth;
+	[SerializeField] private Text currentAnchor;
+	private GameObject currentBoat;
 
 	public void UpdateGUI()
 	{
@@ -19,11 +21,22 @@ public class GUIController : MonoBehaviour
 
 	public void UpdateSelected()
 	{
-		GameObject boat = GameObject.FindGameObjectWithTag("Selected");
-		if (boat != null) 
+		currentBoat = GameObject.FindGameObjectWithTag("Selected");
+		if (currentBoat != null) 
 		{
-			currentBoatName.text = boat.name;
-			currentBoatHealth.text = "Health: " + boat.GetComponent<BoatController> ().GetHealth ();
+			currentBoatName.text = currentBoat.name;
+			currentBoatHealth.text = "Health: " + currentBoat.GetComponent<BoatController> ().GetHealth();
+			currentAnchor.text = currentBoat.GetComponent<BoatController>().GetAnchored() ? "Un-Anchor" : "Anchor";
+		}
+	}
+
+	public void UpdateAnchor()
+	{
+		currentBoat = GameObject.FindGameObjectWithTag("Selected");
+		if (currentBoat != null) 
+		{
+			currentBoat.GetComponent<BoatController>().Anchor();
+			UpdateSelected();
 		}
 	}
 }

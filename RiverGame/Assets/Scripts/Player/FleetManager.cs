@@ -103,4 +103,12 @@ public class FleetManager : MonoBehaviour
 	// 	boatControllers.Remove(boat.GetComponent<BoatController>());
 	// 	boats.Remove(boat);
 	// }
+
+	public void AnchorAll(bool anchored)
+	{
+		foreach (BoatController boat in boatControllers)
+		{
+			boat.SetAnchored(anchored);
+		}
+	}
 }

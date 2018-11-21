@@ -7,6 +7,8 @@ public class BoatController : MonoBehaviour
 	[SerializeField] private int health;
 	[SerializeField] private int defense;
 	[SerializeField] private float speed;
+	private float constSpeed;
+	private bool anchored;
 
 	[SerializeField] private GameObject crewMember;
 	private int numberOfSeats;
@@ -18,6 +20,11 @@ public class BoatController : MonoBehaviour
 
 	public void Start()
 	{
+		constSpeed = speed;
+		anchored = false;
+		Anchor();
+		GameObject.Find("Canvas").GetComponent<GUIController>().UpdateSelected();
+
 		foreach (Transform t in transform.GetChild(SEATS_NUM).transform) {
 			GameObject member = Instantiate(crewMember, new Vector3(t.position.x, t.position.y + 2.5f, t.position.z + 0.5f), Quaternion.identity, transform.GetChild(CREW_NUM));
 		}
@@ -47,6 +54,24 @@ public class BoatController : MonoBehaviour
 			tag = "Unselected";
 			gameObject.SetActive(false);
 		}
+	}
+
+	public void Anchor()
+	{
+		anchored = !anchored;
+		speed = anchored ? 0 : constSpeed;
+	}
+
+	public void SetAnchored(bool anchor)
+	{
+		anchored = anchor;
+		speed = anchored ? 0 : constSpeed;
+		GameObject.Find("Canvas").GetComponent<GUIController>().UpdateSelected();
+	}
+
+	public bool GetAnchored()
+	{
+		return anchored;
 	}
 
 	/**
