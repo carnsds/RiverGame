@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GUIController : MonoBehaviour
 {
 	//Overall Information
+	[SerializeField] private GameObject lost;
 	[SerializeField] private Text points;
 
 	//Currently Selected Boat
@@ -13,6 +15,20 @@ public class GUIController : MonoBehaviour
 	[SerializeField] private Text currentBoatHealth;
 	[SerializeField] private Text currentAnchor;
 	private GameObject currentBoat;
+
+	public void Update()
+	{
+		if (GameObject.FindGameObjectWithTag("Selected") == null
+		    && GameObject.FindGameObjectWithTag("Unselected") == null)
+		{
+			lost.SetActive(true);
+		}
+	}
+
+	public void RestartGame()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
 
 	public void UpdateGUI()
 	{
