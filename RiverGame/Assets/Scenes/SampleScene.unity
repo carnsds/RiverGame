@@ -1771,9 +1771,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boats:
-  - {fileID: 1882077335982234, guid: 3747ee9774bf5df40b1a75b29edfdde8, type: 2}
-  - {fileID: 1882077335982234, guid: 3747ee9774bf5df40b1a75b29edfdde8, type: 2}
-  - {fileID: 1882077335982234, guid: 3747ee9774bf5df40b1a75b29edfdde8, type: 2}
+  - {fileID: 1922996194592546, guid: c78b7e3dc3ba68344aa7bcd1d045b755, type: 2}
+  - {fileID: 1922996194592546, guid: c78b7e3dc3ba68344aa7bcd1d045b755, type: 2}
+  - {fileID: 1922996194592546, guid: c78b7e3dc3ba68344aa7bcd1d045b755, type: 2}
 --- !u!4 &1498132179
 Transform:
   m_ObjectHideFlags: 0
