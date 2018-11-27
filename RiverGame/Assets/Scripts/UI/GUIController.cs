@@ -8,18 +8,19 @@ public class GUIController : MonoBehaviour
 {
 	//Overall Information
 	[SerializeField] private GameObject lost;
+	[SerializeField] private GameObject win;
 	[SerializeField] private Text points;
 
 	//Currently Selected Boat
 	[SerializeField] private Text currentBoatName;
-	[SerializeField] private Text currentBoatHealth;
+	[SerializeField] private Text currentBoatInfo;
 	[SerializeField] private Text currentAnchor;
 	private GameObject currentBoat;
 
 	public void Update()
 	{
-		if (GameObject.FindGameObjectWithTag("Selected") == null
-		    && GameObject.FindGameObjectWithTag("Unselected") == null)
+		if (GameObject.FindGameObjectsWithTag("Selected") == null
+		    && GameObject.FindGameObjectsWithTag("Unselected") == null)
 		{
 			lost.SetActive(true);
 		}
@@ -28,6 +29,11 @@ public class GUIController : MonoBehaviour
 	public void RestartGame()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	public void WinGame()
+	{
+		win.SetActive(true);
 	}
 
 	public void UpdateGUI()
@@ -41,7 +47,8 @@ public class GUIController : MonoBehaviour
 		if (currentBoat != null) 
 		{
 			currentBoatName.text = currentBoat.name;
-			currentBoatHealth.text = "Health: " + currentBoat.GetComponent<BoatController> ().GetHealth();
+			currentBoatInfo.text = "Health: " + currentBoat.GetComponent<BoatController> ().GetHealth()
+								   + "\nDefense: " + currentBoat.GetComponent<BoatController>().GetDefense();
 			currentAnchor.text = currentBoat.GetComponent<BoatController>().GetAnchored() ? "Un-Anchor" : "Anchor";
 		}
 	}

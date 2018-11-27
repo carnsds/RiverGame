@@ -19,11 +19,10 @@ public class FleetManager : MonoBehaviour
 		/**
 		 * Loads our boats into the scene.
 		 **/
+		Vector3 rot = new Vector3(0f, -90f, 0f);
 		Vector3 spawn = transform.position;
 		for (int i = 0; i < boats.Capacity; i++)
 		{
-			Vector3 rot = new Vector3(90, 0, 0);
-
 			GameObject inst = Instantiate(boats[i], transform.position, Quaternion.Euler(rot), transform);
 			inst.name = "Boat" + i;
 			{

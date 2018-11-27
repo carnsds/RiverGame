@@ -18,7 +18,7 @@ public class EnemyController : AIController
     {
 		base.Update();
         RaycastHit hit;
-        Collider[] objects = Physics.OverlapSphere(transform.position, 2f);
+        Collider[] objects = Physics.OverlapSphere(transform.position, 3f);
         for (int i = 0; i < objects.Length; i++)
         {
             if (objects[i].CompareTag("Current"))

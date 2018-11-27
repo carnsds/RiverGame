@@ -26,7 +26,7 @@ public class BoatController : MonoBehaviour
 		GameObject.Find("Canvas").GetComponent<GUIController>().UpdateSelected();
 
 		foreach (Transform t in transform.GetChild(SEATS_NUM).transform) {
-			GameObject member = Instantiate(crewMember, new Vector3(t.position.x, t.position.y + 2.5f, t.position.z + 0.5f), Quaternion.identity, transform.GetChild(CREW_NUM));
+			GameObject member = Instantiate(crewMember, new Vector3(t.position.x, t.position.y + 1f, t.position.z), Quaternion.identity, transform.GetChild(CREW_NUM));
 		}
 	}
 
@@ -34,9 +34,9 @@ public class BoatController : MonoBehaviour
 	{
 		if (tag.Equals("Selected"))
 		{
-			transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime,
-											0,
-											Input.GetAxisRaw("Vertical") * speed * Time.deltaTime));
+			transform.Translate(new Vector3(Input.GetAxisRaw("Vertical") * speed * Time.deltaTime,
+											0f,
+											-Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime));
 		}
 
 		if (health <= 0)
@@ -120,6 +120,16 @@ public class BoatController : MonoBehaviour
 
 		StartCoroutine(TakeDamage());
 	}
+
+	public int GetDefense()
+	{
+		return defense;
+	}
+
+	public void SetDefense(int defense)
+	{
+		this.defense = defense < 0 ? 0 : defense;
+	}
 	
 	public IEnumerator TakeDamage() 
 	{
@@ -128,5 +138,13 @@ public class BoatController : MonoBehaviour
 		transform.GetChild(BOAT_NUM).GetComponent<Renderer>().material.color = Color.red;
 		yield return new WaitForSeconds(0.5f);
 		transform.GetChild(BOAT_NUM).GetComponent<Renderer>().material.color = oldColor;
+	}
+
+	public void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.name.Equals("EndOfLevel"))
+		{
+			GameObject.Find("Canvas").GetComponent<GUIController>().WinGame();
+		}
 	}
 }
