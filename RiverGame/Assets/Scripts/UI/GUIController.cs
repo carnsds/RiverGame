@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class GUIController : MonoBehaviour
 {
+	//Menuing
+	[SerializeField] private GameObject pauseMenu;
+	[SerializeField] private GameObject pauseButton;
+
 	//Overall Information
 	[SerializeField] private GameObject lost;
 	[SerializeField] private GameObject win;
@@ -26,9 +30,31 @@ public class GUIController : MonoBehaviour
 		}
 	}
 
+	public void PauseGame()
+	{
+		if (Time.timeScale > 0)
+		{
+			Time.timeScale = 0;
+			pauseMenu.SetActive (true);
+			pauseButton.GetComponentInChildren<Text> ().text = "\u25B6";
+		}
+		else
+		{
+			Time.timeScale = 1;
+			pauseMenu.SetActive (false);
+			pauseButton.GetComponentInChildren<Text> ().text = " \u258C\u258C";
+		}
+	}
+
 	public void RestartGame()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	public void QuitGame()
+	{
+		Time.timeScale = 1;
+		SceneManager.LoadScene("StartScene");
 	}
 
 	public void WinGame()
