@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoatController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class BoatController : MonoBehaviour
 	[SerializeField] private float speed;
 	private float constSpeed;
 	private bool anchored;
+
+	[SerializeField] private Sprite img;
 
 	[SerializeField] private GameObject crewMember;
 	private int numberOfSeats;
@@ -129,6 +132,10 @@ public class BoatController : MonoBehaviour
 	public void SetDefense(int defense)
 	{
 		this.defense = defense < 0 ? 0 : defense;
+	}
+
+	public Sprite GetImage() {
+		return img;
 	}
 	
 	public IEnumerator TakeDamage() 

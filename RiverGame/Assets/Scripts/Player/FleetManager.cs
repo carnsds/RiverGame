@@ -110,4 +110,9 @@ public class FleetManager : MonoBehaviour
 			boat.SetAnchored(anchored);
 		}
 	}
+
+	public List<BoatController> GetBoatControllers() 
+	{
+		return boatControllers;
+	}
 }

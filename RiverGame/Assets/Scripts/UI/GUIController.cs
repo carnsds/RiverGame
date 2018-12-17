@@ -19,7 +19,27 @@ public class GUIController : MonoBehaviour
 	[SerializeField] private Text currentBoatName;
 	[SerializeField] private Text currentBoatInfo;
 	[SerializeField] private Text currentAnchor;
+
+	[SerializeField] private FleetManager fleetManager;
+	[SerializeField] private GameObject imageButton;
 	private GameObject currentBoat;
+	private List<GameObject> boatSprites;
+
+	public void Start() 
+	{
+		boatSprites = new List<GameObject>();
+		int index = 1;
+		foreach(BoatController boat in fleetManager.GetBoatControllers()) 
+		{
+			Vector3 position = new Vector3(50 * index, 400, 0);
+			GameObject obj = Instantiate(imageButton, position, Quaternion.identity, transform);
+			obj.GetComponent<SelectButton>().SetIndex(index - 1);
+			obj.GetComponent<Image>().sprite = boat.GetImage();
+			obj.GetComponent<Button>().onClick.AddListener(delegate(){obj.GetComponent<SelectButton>().Select();});
+			boatSprites.Add(obj);
+			index++;
+		}
+	}
 
 	public void Update()
 	{
@@ -88,4 +108,9 @@ public class GUIController : MonoBehaviour
 			UpdateSelected();
 		}
 	}
+
+	public List<GameObject> GetSprites() 
+	{
+		return boatSprites;
+	} 
 }
