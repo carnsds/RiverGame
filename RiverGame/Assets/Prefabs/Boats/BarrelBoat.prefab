@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114058357534639342}
   - component: {fileID: 54517798467949596}
   - component: {fileID: 65797406978236110}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BarrelBoat
   m_TagString: Unselected
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4463461627377920}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Seat0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4350560828998548}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Seats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4049795184520824}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Crew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 33280785434935292}
   - component: {fileID: 23902845051597280}
   - component: {fileID: 65081383441918786}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Boat Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

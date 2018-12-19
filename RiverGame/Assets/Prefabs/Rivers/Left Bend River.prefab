@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4175719664896792}
   - component: {fileID: 65486097267296876}
   - component: {fileID: 65801728459853942}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4443980369529748}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Left Bend River
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 33956437351060520}
   - component: {fileID: 23657289118402214}
   - component: {fileID: 114094348959502328}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: OceanPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 65720336686650190}
   - component: {fileID: 65898585736701188}
   - component: {fileID: 65637450721118024}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 4846616808531722}
   - component: {fileID: 33333101973262136}
   - component: {fileID: 23283222868739564}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,8 +166,7 @@ GameObject:
   - component: {fileID: 4957942060477992}
   - component: {fileID: 33928107463957754}
   - component: {fileID: 23849504637582036}
-  - component: {fileID: 65288440483177350}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,18 +617,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 22.859999, y: 152.40002, z: 1.9050095}
   m_Center: {x: -3.3839618e-15, y: 6.7679195e-15, z: 0.9525002}
---- !u!65 &65288440483177350
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1700219460327996}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 37.81893, y: 1.9050052, z: 152.38501}
-  m_Center: {x: -0.09418774, y: 0.9525, z: 0.96423334}
 --- !u!65 &65347395135977920
 BoxCollider:
   m_ObjectHideFlags: 1

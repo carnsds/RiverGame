@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33474632137591378}
   - component: {fileID: 23857309271936158}
   - component: {fileID: 65372258895596176}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Boat Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4387976803449784}
   - component: {fileID: 33475259814750136}
   - component: {fileID: 23969956984967512}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Seat2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4740944571970642}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Crew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4286976529385714}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Seats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 4326862267196376}
   - component: {fileID: 33835253483130528}
   - component: {fileID: 23959345895645098}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Seat1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 114851646385963212}
   - component: {fileID: 54184474773039576}
   - component: {fileID: 65211604888275524}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StandardBoat
   m_TagString: Unselected
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4625782713578028}
   - component: {fileID: 33185508529755018}
   - component: {fileID: 23513930066010040}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Seat0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

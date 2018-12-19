@@ -31,7 +31,7 @@ public class GUIController : MonoBehaviour
 		int index = 1;
 		foreach(BoatController boat in fleetManager.GetBoatControllers()) 
 		{
-			Vector3 position = new Vector3(50 * index, 400, 0);
+			Vector3 position = new Vector3(800 + 50 * index, 500, 0);
 			GameObject obj = Instantiate(imageButton, position, Quaternion.identity, transform);
 			obj.GetComponent<SelectButton>().SetIndex(index - 1);
 			obj.GetComponent<Image>().sprite = boat.GetImage();
@@ -113,4 +113,10 @@ public class GUIController : MonoBehaviour
 	{
 		return boatSprites;
 	} 
+
+	public void DisableText(int id)
+	{
+		boatSprites[id].GetComponentInChildren<Text>().text = "X";
+		boatSprites[id].GetComponent<Button>().enabled = false;
+	}
 }

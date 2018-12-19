@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 4656040}
   - component: {fileID: 4656039}
   - component: {fileID: 4656038}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 81563341}
   - component: {fileID: 81563343}
   - component: {fileID: 81563342}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,6 +356,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1971932485846982, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
   m_IsPrefabAsset: 0
@@ -374,7 +378,7 @@ GameObject:
   - component: {fileID: 105720789}
   - component: {fileID: 105720788}
   - component: {fileID: 105720787}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EnemySpawner2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +436,7 @@ GameObject:
   - component: {fileID: 124670594}
   - component: {fileID: 124670593}
   - component: {fileID: 124670592}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EnemySpawner0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +494,7 @@ GameObject:
   - component: {fileID: 129722973}
   - component: {fileID: 129722975}
   - component: {fileID: 129722974}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170076735}
   - component: {fileID: 170076734}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,6 +673,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1971932485846982, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
   m_IsPrefabAsset: 0
@@ -688,7 +696,7 @@ GameObject:
   - component: {fileID: 212481233}
   - component: {fileID: 212481232}
   - component: {fileID: 212481231}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,7 +818,7 @@ GameObject:
   - component: {fileID: 238303381}
   - component: {fileID: 238303383}
   - component: {fileID: 238303382}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: LostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 260849946}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,7 +933,7 @@ GameObject:
   - component: {fileID: 306180244}
   - component: {fileID: 306180243}
   - component: {fileID: 306180242}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1047,7 +1055,7 @@ GameObject:
   - component: {fileID: 374915779}
   - component: {fileID: 374915781}
   - component: {fileID: 374915780}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1130,7 @@ GameObject:
   - component: {fileID: 459538343}
   - component: {fileID: 459538345}
   - component: {fileID: 459538344}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1235,6 +1243,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1971932485846982, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
   m_IsPrefabAsset: 0
@@ -1295,6 +1307,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1971932485846982, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
   m_IsPrefabAsset: 0
@@ -1314,9 +1330,9 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1431,6 +1447,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1431466479925162, guid: 4b4a7d523d11e4746b6bae525afa46c7, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531639540851628, guid: 4b4a7d523d11e4746b6bae525afa46c7, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541386934542092, guid: 4b4a7d523d11e4746b6bae525afa46c7, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512832916861756, guid: 4b4a7d523d11e4746b6bae525afa46c7, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570397609029496, guid: 4b4a7d523d11e4746b6bae525afa46c7, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170463361046306, guid: 4b4a7d523d11e4746b6bae525afa46c7, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4a7d523d11e4746b6bae525afa46c7, type: 2}
   m_IsPrefabAsset: 0
@@ -1444,7 +1484,7 @@ GameObject:
   - component: {fileID: 730086513}
   - component: {fileID: 730086512}
   - component: {fileID: 730086511}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: PointsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1519,7 +1559,7 @@ GameObject:
   - component: {fileID: 749124899}
   - component: {fileID: 749124901}
   - component: {fileID: 749124900}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1592,7 +1632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 752162497}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Lost Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1668,6 +1708,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1971932485846982, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
   m_IsPrefabAsset: 0
@@ -1720,7 +1764,7 @@ GameObject:
   - component: {fileID: 910789074}
   - component: {fileID: 910789076}
   - component: {fileID: 910789075}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: LostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1795,7 +1839,7 @@ GameObject:
   - component: {fileID: 975338832}
   - component: {fileID: 975338834}
   - component: {fileID: 975338833}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1870,7 +1914,7 @@ GameObject:
   - component: {fileID: 977746609}
   - component: {fileID: 977746611}
   - component: {fileID: 977746610}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2000,6 +2044,18 @@ Prefab:
       propertyPath: m_Name
       value: Rock
       objectReference: {fileID: 0}
+    - target: {fileID: 191008, guid: a07269202deb94d4b8bedeaa6e75b192, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 157950, guid: a07269202deb94d4b8bedeaa6e75b192, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 170962, guid: a07269202deb94d4b8bedeaa6e75b192, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6485430, guid: a07269202deb94d4b8bedeaa6e75b192, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: a07269202deb94d4b8bedeaa6e75b192, type: 2}
@@ -2012,7 +2068,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1010015361}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: BoatHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2053,7 +2109,7 @@ GameObject:
   - component: {fileID: 1011525014}
   - component: {fileID: 1011525016}
   - component: {fileID: 1011525015}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2129,7 +2185,7 @@ GameObject:
   - component: {fileID: 1042188285}
   - component: {fileID: 1042188284}
   - component: {fileID: 1042188283}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: SettingsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2241,7 +2297,7 @@ GameObject:
   - component: {fileID: 1047007155}
   - component: {fileID: 1047007154}
   - component: {fileID: 1047007153}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: AnchorButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2397,6 +2453,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1971932485846982, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
   m_IsPrefabAsset: 0
@@ -2417,7 +2477,7 @@ GameObject:
   - component: {fileID: 1235734756}
   - component: {fileID: 1235734755}
   - component: {fileID: 1235734754}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2537,7 +2597,7 @@ GameObject:
   - component: {fileID: 1303522434}
   - component: {fileID: 1303522436}
   - component: {fileID: 1303522435}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2612,7 +2672,7 @@ GameObject:
   - component: {fileID: 1356141017}
   - component: {fileID: 1356141018}
   - component: {fileID: 1356141019}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EnemySpawner1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2668,7 +2728,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1422000712}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Win Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2706,7 +2766,7 @@ GameObject:
   - component: {fileID: 1469180835}
   - component: {fileID: 1469180837}
   - component: {fileID: 1469180836}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2780,7 +2840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1498132179}
   - component: {fileID: 1498132178}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Boats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2802,6 +2862,8 @@ MonoBehaviour:
   - {fileID: 1131068763908892, guid: dc39808014edd104c9f0722ba8a07c42, type: 2}
   - {fileID: 1922996194592546, guid: c78b7e3dc3ba68344aa7bcd1d045b755, type: 2}
   - {fileID: 1131068763908892, guid: dc39808014edd104c9f0722ba8a07c42, type: 2}
+  - {fileID: 1131068763908892, guid: dc39808014edd104c9f0722ba8a07c42, type: 2}
+  - {fileID: 1922996194592546, guid: c78b7e3dc3ba68344aa7bcd1d045b755, type: 2}
 --- !u!4 &1498132179
 Transform:
   m_ObjectHideFlags: 0
@@ -2825,7 +2887,7 @@ GameObject:
   - component: {fileID: 1505947521}
   - component: {fileID: 1505947520}
   - component: {fileID: 1505947519}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2891,7 +2953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1560968952}
   - component: {fileID: 1560968951}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EndOfLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2971,6 +3033,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1971932485846982, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
   m_IsPrefabAsset: 0
@@ -3027,6 +3093,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1971932485846982, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc3ae1aa0c86f4643a7f9b71eeb82a1e, type: 2}
   m_IsPrefabAsset: 0
@@ -3045,7 +3115,7 @@ GameObject:
   - component: {fileID: 1691781871}
   - component: {fileID: 1691781873}
   - component: {fileID: 1691781872}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3118,7 +3188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1716379486}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3158,7 +3228,7 @@ GameObject:
   - component: {fileID: 1750339609}
   - component: {fileID: 1750339608}
   - component: {fileID: 1750339607}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: UnAnchorAllButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3280,7 +3350,7 @@ GameObject:
   - component: {fileID: 1806027166}
   - component: {fileID: 1806027168}
   - component: {fileID: 1806027167}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3349,7 +3419,7 @@ GameObject:
   - component: {fileID: 1846320604}
   - component: {fileID: 1846320606}
   - component: {fileID: 1846320605}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3429,7 +3499,7 @@ GameObject:
   - component: {fileID: 1890330652}
   - component: {fileID: 1890330651}
   - component: {fileID: 1890330650}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3505,7 +3575,7 @@ GameObject:
   - component: {fileID: 1949474803}
   - component: {fileID: 1949474802}
   - component: {fileID: 1949474801}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: PauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3628,7 +3698,7 @@ GameObject:
   - component: {fileID: 1984256565}
   - component: {fileID: 1984256564}
   - component: {fileID: 1984256563}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: AnchorAllButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3779,6 +3849,42 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1506021353261896, guid: 626c53d1556101e46b26d31b38729c5c, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853980380987860, guid: 626c53d1556101e46b26d31b38729c5c, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266300439339106, guid: 626c53d1556101e46b26d31b38729c5c, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975093132684050, guid: 626c53d1556101e46b26d31b38729c5c, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1708576085449928, guid: 626c53d1556101e46b26d31b38729c5c, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604768181258898, guid: 626c53d1556101e46b26d31b38729c5c, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167837187925350, guid: 626c53d1556101e46b26d31b38729c5c, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238776476845228, guid: 626c53d1556101e46b26d31b38729c5c, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572763506072974, guid: 626c53d1556101e46b26d31b38729c5c, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626c53d1556101e46b26d31b38729c5c, type: 2}
   m_IsPrefabAsset: 0
@@ -3792,7 +3898,7 @@ GameObject:
   - component: {fileID: 2138853396}
   - component: {fileID: 2138853398}
   - component: {fileID: 2138853397}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}

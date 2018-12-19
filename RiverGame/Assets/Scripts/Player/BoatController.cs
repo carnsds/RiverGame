@@ -19,10 +19,13 @@ public class BoatController : MonoBehaviour
 	private const int CREW_NUM = 1;
 	private const int BOAT_NUM = 2;
 
+	private Vector3 waypoint;
+
 	private int id;
 
 	public void Start()
 	{
+		waypoint = Vector3.zero;
 		constSpeed = speed;
 		anchored = false;
 		Anchor();
@@ -40,7 +43,34 @@ public class BoatController : MonoBehaviour
 			transform.Translate(new Vector3(Input.GetAxisRaw("Vertical") * speed * Time.deltaTime,
 											0f,
 											-Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime));
+
+			if (Input.GetMouseButtonDown(0)) {
+				
+				Ray point = Camera.main.ScreenPointToRay(Input.mousePosition);
+				RaycastHit hit;
+				if (Physics.Raycast(point, out hit, 50f)) {
+					Debug.Log("Collider tag: " + hit.collider.tag + " Pos: " + hit.point);
+					if (hit.collider.tag == "Current") {
+						waypoint = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+						Debug.Log("Waypoint: " + waypoint + " Transform: " + transform.position);
+					}
+				}
+			}								
 		}
+        Collider[] objects = Physics.OverlapSphere(waypoint, 0.1f);
+        for (int i = 0; i < objects.Length; i++)
+        {
+            if (objects[i].CompareTag("Selected") || objects[i].CompareTag("Unselected"))
+            {
+                SetAnchored(true);
+				waypoint = Vector3.zero;
+            }
+        }
+		if (waypoint != Vector3.zero) 
+		{
+			transform.position = Vector3.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
+		}
+		
 
 		if (health <= 0)
 		{
@@ -56,6 +86,7 @@ public class BoatController : MonoBehaviour
 			// Destroy(gameObject);
 			tag = "Unselected";
 			gameObject.SetActive(false);
+			GameObject.Find("Canvas").GetComponent<GUIController>().DisableText(id);
 		}
 	}
 
@@ -63,6 +94,7 @@ public class BoatController : MonoBehaviour
 	{
 		anchored = !anchored;
 		speed = anchored ? 0 : constSpeed;
+		GameObject.Find("Canvas").GetComponent<GUIController>().UpdateSelected();
 	}
 
 	public void SetAnchored(bool anchor)
