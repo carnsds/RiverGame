@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ffb665583d3c448a2ca325a6e66e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1304470150701664, guid: 4864ddaaf51788b4db1c444a346e7daf, type: 2}
+  projectile: {fileID: 151830, guid: 6cec304f27f918d44b808e7706ea004d, type: 2}
   range: 11
   interval: 3
 --- !u!136 &136183055044696594

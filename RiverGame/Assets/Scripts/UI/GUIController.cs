@@ -9,6 +9,9 @@ public class GUIController : MonoBehaviour
 	//Menuing
 	[SerializeField] private GameObject pauseMenu;
 	[SerializeField] private GameObject pauseButton;
+	[SerializeField] private GameObject audioButton;
+	[SerializeField] private Sprite audioOn;
+	[SerializeField] private Sprite audioOff;
 
 	//Overall Information
 	[SerializeField] private GameObject lost;
@@ -31,7 +34,7 @@ public class GUIController : MonoBehaviour
 		int index = 1;
 		foreach(BoatController boat in fleetManager.GetBoatControllers()) 
 		{
-			Vector3 position = new Vector3(800 + 50 * index, 500, 0);
+			Vector3 position = new Vector3(760 + 50 * index, 500, 0);
 			GameObject obj = Instantiate(imageButton, position, Quaternion.identity, transform);
 			obj.GetComponent<SelectButton>().SetIndex(index - 1);
 			obj.GetComponent<Image>().sprite = boat.GetImage();
@@ -63,6 +66,20 @@ public class GUIController : MonoBehaviour
 			Time.timeScale = 1;
 			pauseMenu.SetActive (false);
 			pauseButton.GetComponentInChildren<Text> ().text = " \u258C\u258C";
+		}
+	}
+
+	public void PauseAudio()
+	{
+		if (AudioListener.volume == 0f)
+		{
+			AudioListener.volume = 1f;
+			audioButton.GetComponent<Image>().sprite = audioOn;
+		}
+		else
+		{
+			AudioListener.volume = 0f;
+			audioButton.GetComponent<Image>().sprite = audioOff;
 		}
 	}
 
