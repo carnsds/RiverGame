@@ -69,17 +69,18 @@ public class GUIController : MonoBehaviour
 		}
 	}
 
+	//Due to the parent having a sprite as well, we need to specify the child with index 1
 	public void PauseAudio()
 	{
 		if (AudioListener.volume == 0f)
 		{
 			AudioListener.volume = 1f;
-			audioButton.GetComponent<Image>().sprite = audioOn;
+			audioButton.GetComponentsInChildren<Image>()[1].sprite = audioOn;
 		}
 		else
 		{
 			AudioListener.volume = 0f;
-			audioButton.GetComponent<Image>().sprite = audioOff;
+			audioButton.GetComponentsInChildren<Image>()[1].sprite = audioOff;
 		}
 	}
 
