@@ -5,6 +5,9 @@ using UnityEngine;
 //Unity in Action 2nd Edition
 public class FleetManager : MonoBehaviour
 {
+	enum BOAT_TYPE {
+		BARREL, ROW
+	}
 	public static int points;
 	public List<GameObject> boats;
 
@@ -13,6 +16,8 @@ public class FleetManager : MonoBehaviour
 
 	public void Start()
 	{
+		PlayerStats.Init();
+		
 		currentSelected = 0;
 
 		boatControllers = new List<BoatController>();

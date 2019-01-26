@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BoatController : MonoBehaviour
 {
+	private int level;
 	[SerializeField] private int health;
 	[SerializeField] private int defense;
 	[SerializeField] private float speed;

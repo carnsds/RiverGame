@@ -42,6 +42,8 @@ public class GUIController : MonoBehaviour
 			boatSprites.Add(obj);
 			index++;
 		}
+
+		UpdateGUI();
 	}
 
 	public void Update()
@@ -91,8 +93,10 @@ public class GUIController : MonoBehaviour
 
 	public void QuitGame()
 	{
+		DBManager.Close();
 		Time.timeScale = 1;
 		SceneManager.LoadScene("StartScene");
+
 	}
 
 	public void WinGame()
@@ -102,7 +106,7 @@ public class GUIController : MonoBehaviour
 
 	public void UpdateGUI()
 	{
-		points.text = "Points: " + PlayerStats.points;
+		points.text = "[" + PlayerStats.GetData()[1] + "] Points: " + PlayerStats.points;
 	}
 
 	public void UpdateSelected()
