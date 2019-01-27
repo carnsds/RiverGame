@@ -12,15 +12,11 @@ public static class PlayerStats {
 	//Name, Upgrade Level, Type, Projectile
 	public static void Init()
 	{
-		//Check if save data is available
-		if (list == null)
-		{
-			SetList(new ArrayList{
-			1, "CaptainBob", 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1
-			});
-		}
-		DBManager.InsertORUpdate(list);
+		SetList(DBManager.GetData());
+		list[0] = gameName;
+		DBManager.UpdateDB(list);		
 	}
+
 	public static ArrayList GetData() {
 		return list;
 	}

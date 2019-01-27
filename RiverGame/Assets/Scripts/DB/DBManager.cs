@@ -32,102 +32,178 @@ public class DBManager : MonoBehaviour
         connection = "URI=file:" 
                     + Application.persistentDataPath 
                     + "/GameData";
-        IDbCommand dbcmd;
-        IDataReader reader;
-        dbcon = new SqliteConnection(connection);
-        dbcon.Open();
-        dbcmd = dbcon.CreateCommand();
-        string q_createTable = 
-        "CREATE TABLE IF NOT EXISTS game_states "+
-        "(" + ID +" INTEGER PRIMARY KEY, " + NAME +" VARCHAR, " + POINTS + " INTEGER, " + BOAT1 + " INTEGER, " + BOAT1LVL + " INTEGER"
-        + ", " + BOAT2 + " INTEGER, " + BOAT2LVL + " INTEGER, " + BOAT3 + " INTEGER, " + BOAT3LVL + " INTEGER, " + BOAT4
-        + " INTEGER, " + BOAT4LVL + " INTEGER, " + BOAT5 + " INTEGER, " + BOAT5LVL + " INTEGER );";
-        dbcmd.CommandText = q_createTable;
-        reader = dbcmd.ExecuteReader();
+        
+        //Debug.Log(System.IO.File.Exists(connection + "/game_states"));
+        if (!System.IO.File.Exists(connection + "/game_states"))
+        {
+            //DropTable();
+            using (dbcon = new SqliteConnection(connection))
+            {
+                dbcon.Open();
+                using(IDbCommand dbcmd = dbcon.CreateCommand())
+                {
+                    string q_createTable = 
+                        "CREATE TABLE IF NOT EXISTS game_states "
+                        + "("+ NAME +" VARCHAR, " + POINTS + " INTEGER, " + BOAT1 + " INTEGER, " + BOAT1LVL + " INTEGER"
+                        + ", " + BOAT2 + " INTEGER, " + BOAT2LVL + " INTEGER, " + BOAT3 + " INTEGER, " + BOAT3LVL + " INTEGER, " + BOAT4
+                        + " INTEGER, " + BOAT4LVL + " INTEGER, " + BOAT5 + " INTEGER, " + BOAT5LVL + " INTEGER ,id INTEGER PRIMARY KEY AUTOINCREMENT);";
+                        dbcmd.CommandText = q_createTable;
+                    IDataReader reader = dbcmd.ExecuteReader();
+                    reader.Close();
+                }
+                dbcon.Close();
+            }
+            //Populate();
+            }
     }
 
-    public static void InsertORUpdate(ArrayList data) 
+    public static void Populate() {
+        InsertDB(new ArrayList{
+			"New Game1", 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1
+			});
+        InsertDB(new ArrayList{
+			"New Game2", 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1
+			});
+        InsertDB(new ArrayList{
+			"New Game3", 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1
+			});
+    }
+
+    public static void UpdateDB(ArrayList data) 
     {
-        /* connection = "URI=file:" 
-                    + Application.persistentDataPath 
-                    + "/GameData";
-        dbcon = new SqliteConnection(connection);
-        dbcon.Open();*/
+        
         if (GAME_STATE >= 1 && GAME_STATE <= 3)
         {
-            IDbCommand cmnd = dbcon.CreateCommand();
-            cmnd.CommandText = "SELECT * FROM game_states WHERE ID=" + "\"" + GAME_STATE + "\";";
-            IDataReader reader = cmnd.ExecuteReader();
-            if (((System.Data.Common.DbDataReader)reader).HasRows) 
+            connection = "URI=file:" 
+                    + Application.persistentDataPath 
+                    + "/GameData";
+            using (dbcon = new SqliteConnection(connection))
             {
-                PlayerStats.SetList(getData(reader));
-                //reader;
-                reader.Close();
-                cmnd.Prepare();
-                //dbcon.Dispose();
-                //dbcon.Open();
-                cmnd = dbcon.CreateCommand();
-                //dbcon = new SqliteConnection(connection);
-                //dbcon.Open();
-                cmnd.CommandText = "UPDATE game_states SET " + ID + "= " + data[0]
-                + ", " + NAME + "= \"" + data[1] 
-                + "\", "+ POINTS + "= " + data[2]
-                + ", "+ BOAT1 + "= " + data[3]
-                + ", " + BOAT1LVL + "= " + data[4]
-                + ", "+ BOAT2 + "= " + data[5]
-                + ", " + BOAT2LVL + "= " + data[6]
-                + ", "+ BOAT3 + "= " + data[7]
-                + ", " + BOAT3LVL + "= " + data[8]
-                + ", "+ BOAT4 + "= " + data[9]
-                + ", " + BOAT4LVL + "= " + data[10]
-                + ", "+ BOAT5 + "= " + data[11]
-                + ", " + BOAT5LVL+ "= " + data[12]
-                +" WHERE ID=\"" + GAME_STATE + "\";";
-                cmnd.ExecuteNonQuery();
-                reader = cmnd.ExecuteReader();
-                
-                //dbcon.Close();
+                dbcon.Open();
+                using(IDbCommand cmnd = dbcon.CreateCommand())
+                {    
+                    cmnd.CommandText = "UPDATE game_states SET "
+                    + "\"" + NAME + "\"= \"" + data[0] 
+                    + "\", \""+ POINTS + "\"= \"" + data[1]
+                    + "\", \""+ BOAT1 + "\"= \"" + data[2]
+                    + "\", \"" + BOAT1LVL + "\"= \"" + data[3]
+                    + "\", \""+ BOAT2 + "\"= \"" + data[4]
+                    + "\", \"" + BOAT2LVL + "\"= \"" + data[5]
+                    + "\", \""+ BOAT3 + "\"= \"" + data[6]
+                    + "\", \"" + BOAT3LVL + "\"= \"" + data[7]
+                    + "\", \""+ BOAT4 + "\"= \"" + data[8]
+                    + "\", \"" + BOAT4LVL + "\"= \"" + data[9]
+                    + "\", \""+ BOAT5 + "\"= \"" + data[10]
+                    + "\", \"" + BOAT5LVL+ "\"= \"" + data[11]
+                    +"\" WHERE rowid = \"" + GAME_STATE + "\";";
+                    cmnd.ExecuteScalar();
+                    
+                    dbcon.Close();
+                }
             }
-            else 
+        }       
+    }
+
+    public static void InsertDB(ArrayList data) 
+    {
+            connection = "URI=file:" 
+                    + Application.persistentDataPath 
+                    + "/GameData";
+            using (dbcon = new SqliteConnection(connection))
             {
-                ArrayList list = PlayerStats.GetData();
-                reader.Dispose();
-                //dbcon = new SqliteConnection(connection);
-                //dbcon.Open();
-                cmnd.CommandText = "INSERT INTO game_states (" + ID + ", " 
-                + NAME + ", "+ POINTS 
-                + ", "+ BOAT1 + ", " + BOAT1LVL
-                + ", "+ BOAT2 + ", " + BOAT2LVL
-                + ", "+ BOAT3 + ", " + BOAT3LVL
-                + ", "+ BOAT4 + ", " + BOAT4LVL
-                + ", "+ BOAT5 + ", " + BOAT5LVL
-                + ") VALUES (" + list[0] + ", \"" + list[1] + "\", " + list[2] 
-                + ", " + list[3] + ", " + list[4] + ", -1, -1, -1, -1, -1, -1, -1, -1);";
-                cmnd.ExecuteNonQuery();
+                dbcon.Open();
+                using(IDbCommand cmnd = dbcon.CreateCommand()) {
+                    
+                    cmnd.CommandText = "INSERT INTO game_states (\""
+                    + NAME + "\", \""+ POINTS 
+                    + "\", \""+ BOAT1 + "\", \"" + BOAT1LVL
+                    + "\", \""+ BOAT2 + "\", \"" + BOAT2LVL
+                    + "\", \""+ BOAT3 + "\", \"" + BOAT3LVL
+                    + "\", \""+ BOAT4 + "\", \"" + BOAT4LVL
+                    + "\", \""+ BOAT5 + "\", \"" + BOAT5LVL
+                    + "\") VALUES (\"" + data[0] + "\", \"" + data[1] + "\", \"" + data[2] 
+                    + "\", \"" + data[3] + "\", \"-1\", \"-1\", \"-1\", \"-1\", \"-1\", \"-1\", \"-1\", \"-1\");";
+                    cmnd.ExecuteScalar();
+                }
+                dbcon.Close();
             }
-        }
-        //dbcon.Close();
     }
 
     public static void Close() {
         dbcon.Close();
     }
 
-    private static ArrayList getData(IDataReader reader) {
-        ArrayList list = new ArrayList(13);
-        list.Add(reader[0]);
-        list.Add((string) reader[1]);
-        list.Add(reader[2]);
-        list.Add(reader[3]);
-        list.Add(reader[4]);
-        list.Add(reader[5]);
-        list.Add(reader[6]);
-        list.Add(reader[7]);
-        list.Add(reader[8]);
-        list.Add(reader[9]);
-        list.Add(reader[10]);
-        list.Add(reader[11]);
-        list.Add(reader[12]);
-        return list;
+    public static ArrayList GetData() {
+        connection = "URI=file:" 
+                    + Application.persistentDataPath 
+                    + "/GameData";
+        using (dbcon = new SqliteConnection(connection)) 
+        {
+            dbcon.Open();
+            using(IDbCommand cmd = dbcon.CreateCommand())
+            {
+                string sQlQuery = "SELECT * from game_states WHERE rowid = \"" + GAME_STATE +"\";";
+                cmd.CommandText = sQlQuery;
+
+                using(IDataReader reader = cmd.ExecuteReader())
+                {
+                    ArrayList list = new ArrayList();
+                    if (reader.Read())
+                    {
+                        list.Add(reader.GetString(0));
+                        list.Add(reader.GetInt32(1));
+                        list.Add(reader.GetInt32(2));
+                        list.Add(reader.GetInt32(3));
+                        list.Add(reader.GetInt32(4));
+                        list.Add(reader.GetInt32(5));
+                        list.Add(reader.GetInt32(6));
+                        list.Add(reader.GetInt32(7));
+                        list.Add(reader.GetInt32(8));
+                        list.Add(reader.GetInt32(9));
+                        list.Add(reader.GetInt32(10));
+                        list.Add(reader.GetInt32(11));
+                    }
+                    dbcon.Close();
+                    reader.Close();
+                    return list;
+                }
+            }
+        }  
+    }
+
+    private static void DropTable()
+    {
+        using (dbcon = new SqliteConnection(connection)) 
+        {
+            dbcon.Open();
+            using(IDbCommand cmd = dbcon.CreateCommand())
+            {
+                string sqlQuery = "DROP TABLE IF EXISTS game_states"; 
+                cmd.CommandText = sqlQuery;
+                cmd.ExecuteScalar();
+            }
+            dbcon.Close();
+        }
+    }
+
+    public static void DropRow()
+    {
+        connection = "URI=file:" 
+                    + Application.persistentDataPath 
+                    + "/GameData";
+        //Whatever current game_state is, drop that row
+        using (dbcon = new SqliteConnection(connection)) 
+        {
+            dbcon.Open();
+            using(IDbCommand cmd = dbcon.CreateCommand())
+            {
+                
+                string sqlQuery = "DELETE from game_states WHERE rowid = \"" + GAME_STATE + "\""
+                 + "AND EXISTS(SELECT 1 FROM game_states WHERE rowid = \"" + GAME_STATE + "\" LIMIT 1);"; 
+                cmd.CommandText = sqlQuery;
+                cmd.ExecuteScalar();
+            }
+            dbcon.Close();
+        }
     }
 }

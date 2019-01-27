@@ -106,7 +106,7 @@ public class GUIController : MonoBehaviour
 
 	public void UpdateGUI()
 	{
-		points.text = "[" + PlayerStats.GetData()[1] + "] Points: " + PlayerStats.points;
+		points.text = "[" + PlayerStats.GetData()[0] + "] Points: " + PlayerStats.points;
 	}
 
 	public void UpdateSelected()
