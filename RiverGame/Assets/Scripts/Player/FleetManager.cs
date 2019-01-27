@@ -5,6 +5,9 @@ using UnityEngine;
 //Unity in Action 2nd Edition
 public class FleetManager : MonoBehaviour
 {
+	enum BOAT_TYPE {
+		BARREL, ROW
+	}
 	public static int points;
 	public List<GameObject> boats;
 
@@ -13,17 +16,18 @@ public class FleetManager : MonoBehaviour
 
 	public void Start()
 	{
+		PlayerStats.Init();
+		
 		currentSelected = 0;
 
 		boatControllers = new List<BoatController>();
 		/**
 		 * Loads our boats into the scene.
 		 **/
+		Vector3 rot = new Vector3(0f, -90f, 0f);
 		Vector3 spawn = transform.position;
 		for (int i = 0; i < boats.Capacity; i++)
 		{
-			Vector3 rot = new Vector3(90, 0, 0);
-
 			GameObject inst = Instantiate(boats[i], transform.position, Quaternion.Euler(rot), transform);
 			inst.name = "Boat" + i;
 			{
@@ -103,4 +107,17 @@ public class FleetManager : MonoBehaviour
 	// 	boatControllers.Remove(boat.GetComponent<BoatController>());
 	// 	boats.Remove(boat);
 	// }
+
+	public void AnchorAll(bool anchored)
+	{
+		foreach (BoatController boat in boatControllers)
+		{
+			boat.SetAnchored(anchored);
+		}
+	}
+
+	public List<BoatController> GetBoatControllers() 
+	{
+		return boatControllers;
+	}
 }

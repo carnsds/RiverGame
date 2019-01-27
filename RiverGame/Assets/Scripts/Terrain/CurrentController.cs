@@ -10,12 +10,13 @@ public class CurrentController : MonoBehaviour {
 	{
 		if (other.gameObject.GetComponent<BoatController>() != null)
 		{
-			other.gameObject.transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+			BoatController boat = other.gameObject.GetComponent<BoatController> ();
+			other.gameObject.transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y - 90f, 0f);
 
-			float rotx = other.gameObject.GetComponent<BoatController>().GetSpeed() * strength * (transform.eulerAngles.y / 62.5f);
-			float rotz = other.gameObject.GetComponent<BoatController>().GetSpeed() * strength;
+			float rotx = boat.GetSpeed() * strength * (transform.eulerAngles.y / 62.5f);
+			float rotz = boat.GetSpeed() * strength;
 			Rigidbody rigidbody = other.GetComponent<Rigidbody>();
-			rigidbody.velocity = new Vector3(rotx, 0, rotz);
+			rigidbody.velocity = new Vector3(rotx, 1f, rotz);
 		}
 	}
 }
