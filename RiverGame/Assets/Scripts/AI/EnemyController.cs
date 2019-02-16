@@ -14,10 +14,16 @@ public class EnemyController : AIController
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
 		base.Update();
-        RaycastHit hit;
+
+        float lastBoat = GameObject.Find("Boats").GetComponent<FleetManager>().FindLastBoatPosition();
+        if (lastBoat - transform.position.z > 20f)
+        {
+            Destroy(gameObject);
+        }
+
         Collider[] objects = Physics.OverlapSphere(transform.position, 3f);
         for (int i = 0; i < objects.Length; i++)
         {

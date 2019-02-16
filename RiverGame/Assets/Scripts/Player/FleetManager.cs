@@ -24,7 +24,7 @@ public class FleetManager : MonoBehaviour
 		/**
 		 * Loads our boats into the scene.
 		 **/
-		Vector3 rot = new Vector3(0f, -90f, 0f);
+		Vector3 rot = new Vector3(0f, 0f, 0f);
 		Vector3 spawn = transform.position;
 		for (int i = 0; i < boats.Capacity; i++)
 		{
@@ -100,6 +100,19 @@ public class FleetManager : MonoBehaviour
 			}
 		}
 		return null;
+	}
+
+	public float FindLastBoatPosition()
+	{
+		float minimum = float.MaxValue;
+		foreach (GameObject boat in boats)
+		{
+			if (boat.activeSelf && boat.transform.position.z < minimum)
+			{
+				minimum = boat.transform.position.z;
+			}
+		}
+		return minimum;
 	}
 
 	// public void RemoveBoat(GameObject boat)

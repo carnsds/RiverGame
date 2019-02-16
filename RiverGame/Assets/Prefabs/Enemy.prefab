@@ -124,5 +124,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   accuracy: 5
-  reward: 17
+  reward: 10
   speed: 3

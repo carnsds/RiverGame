@@ -22,27 +22,34 @@ public class EnemySpawner : MonoBehaviour {
 
 		num_enemies = enemies.Count;
 		_collider = GetComponent<BoxCollider>();
-		length = (_collider.size.z / 2f) + transform.position.z;	
-		width = _collider.size.x / 2f + transform.position.x;
+		length = _collider.size.z / 2f;	
+		width = _collider.size.x / 2f;
 		hasHappened = false;
 	}
 	
 	public void OnTriggerEnter(Collider other) {
-		for (int i = 0; i < num_enemies && !hasHappened; i++) {
-			int r = Random.Range(0, num_enemies);
+		if(other.gameObject.CompareTag("Unselected") || other.gameObject.CompareTag("Selected"))
+		{
+			for (int i = 0; i < num_enemies && !hasHappened; i++) {
+				int r = Random.Range(0, num_enemies);
 
-			Vector3 pos;
-			if (direction == DIRECTION.Right)
-			{
-				pos = new Vector3(Random.Range(-width - 40f, -width), 3.3f, Random.Range(-length, length));
+				Vector3 pos;
+				if (direction == DIRECTION.Right)
+				{
+					pos = new Vector3(Random.Range(-width - 20f, -width) + transform.position.x,
+									3.3f,
+									Random.Range(-length, length) + transform.position.z);
+				}
+				else
+				{
+					pos = new Vector3(Random.Range(width, width + 20f) + transform.position.x,
+									3.3f,
+									Random.Range(-length, length) + transform.position.z);
+				}
+				Instantiate(enemies[r], pos, Quaternion.Euler(transform.rotation.eulerAngles));
 			}
-			else
-			{
-				pos = new Vector3(Random.Range(width, width + 40f), 3.3f, Random.Range(-length, length));
-			}
-			Instantiate(enemies[r], pos, Quaternion.Euler(transform.rotation.eulerAngles));
+
+			hasHappened = true;
 		}
-
-		hasHappened = true;
 	}
 }

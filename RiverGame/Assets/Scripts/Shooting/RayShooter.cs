@@ -8,10 +8,8 @@ public class RayShooter : MonoBehaviour
 	[SerializeField] private float range;
 
 	private List<string> targets;
-	private Vector3 target;
-	[SerializeField] private float interval;
-	private bool shouldShoot;
 
+	[SerializeField] private float interval;
 	private float time;
 
 	public void Start()
@@ -24,9 +22,11 @@ public class RayShooter : MonoBehaviour
 		{
 			targets.Add("Selected");
 			targets.Add("Unselected");
+			targets.Add("Player");
 		}
 		else
 		{
+			targets.Add("Enemy");
 			targets.Add("Enemy");
 			targets.Add("Enemy");
 		}
@@ -34,14 +34,13 @@ public class RayShooter : MonoBehaviour
 
 	public void Update()
 	{
-		shouldShoot = false;
 		Collider[] objects = Physics.OverlapSphere(transform.position, range);
 		for (int i = 0; i < objects.Length; i++) {
 			
-			if ((objects[i].CompareTag (targets[0]) || objects[i].CompareTag (targets[1]))) {
-				target = objects[i].transform.position;
-				shouldShoot = true;
-				//Debug.Log(objects[i].name + " " + target);
+			if (objects[i].CompareTag(targets[0])
+				|| objects[i].CompareTag(targets[1])
+				|| objects[i].CompareTag(targets[2])) {
+				Vector3 target = objects[i].transform.position;
 				Shoot (target);
 				return;
 			}
@@ -50,7 +49,6 @@ public class RayShooter : MonoBehaviour
 
 	public void Shoot(Vector3 target)
 	{
-		//float speed = 0.1f; //projectile.GetComponent<ObstacleController>
 		if (Time.time >= time + interval) 
 		{
 			time = Time.time;

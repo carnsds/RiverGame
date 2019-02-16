@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class BoatController : MonoBehaviour
@@ -41,35 +42,38 @@ public class BoatController : MonoBehaviour
 	{
 		if (tag.Equals("Selected"))
 		{
-			transform.Translate(new Vector3(Input.GetAxisRaw("Vertical") * speed * Time.deltaTime,
+			transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime,
 											0f,
-											-Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime));
+											Input.GetAxisRaw("Vertical") * speed * Time.deltaTime));
 
-			if (Input.GetMouseButtonDown(0)) {
-				
+			if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
 				Ray point = Camera.main.ScreenPointToRay(Input.mousePosition);
 				RaycastHit hit;
 				if (Physics.Raycast(point, out hit, 50f)) {
 					Debug.Log("Collider tag: " + hit.collider.tag + " Pos: " + hit.point);
 					if (hit.collider.tag == "Current") {
-						waypoint = new Vector3(hit.point.x, transform.position.y, hit.point.z);
-						Debug.Log("Waypoint: " + waypoint + " Transform: " + transform.position);
+						if (waypoint.z + -GameObject.Find("Boats").transform.position.z < transform.position.z)
+						{
+							waypoint = Vector3.zero;
+						}
+						else
+						{
+							SetAnchored(false);
+							waypoint = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+						}
 					}
 				}
 			}								
 		}
-        Collider[] objects = Physics.OverlapSphere(waypoint, 0.1f);
-        for (int i = 0; i < objects.Length; i++)
-        {
-            if (objects[i].CompareTag("Selected") || objects[i].CompareTag("Unselected"))
-            {
-                SetAnchored(true);
-				waypoint = Vector3.zero;
-            }
-        }
+		
 		if (waypoint != Vector3.zero) 
 		{
 			transform.position = Vector3.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
+			if (waypoint.z <= transform.position.z)
+			{
+				SetAnchored(true);
+				waypoint = Vector3.zero;
+			}
 		}
 		
 

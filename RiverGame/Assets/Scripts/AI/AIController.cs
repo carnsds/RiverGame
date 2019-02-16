@@ -43,4 +43,12 @@ public class AIController : MonoBehaviour
 		return accuracy;
 	}
 
+	public void OnCollisionEnter(Collision other)
+	{
+		if (other.gameObject.CompareTag("Obstacle"))
+		{
+			ObstacleController obst = other.gameObject.GetComponent<ObstacleController>();
+			SetHealth(health - obst.GetDamage());
+		}
+	}
 }
