@@ -23,6 +23,5 @@ public static class PlayerStats {
 
 	public static void SetList(ArrayList dataList) {
 		list = dataList;
-
 	}
 }

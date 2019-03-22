@@ -3,26 +3,31 @@ guid: 97d5e4c61f70666478ebb069bd1c6f5b
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Grass
-    100002: Ground
-    100004: //RootNode
-    100006: Water
-    400000: Grass
-    400002: Ground
-    400004: //RootNode
-    400006: Water
+    100000: Ground
+    100002: //RootNode
+    100004: LeftGrass
+    100006: RightGrass
+    100008: Water
+    400000: Ground
+    400002: //RootNode
+    400004: LeftGrass
+    400006: RightGrass
+    400008: Water
     2100000: Water
-    2100002: Ground
-    2100004: Grass
-    2300000: Grass
-    2300002: Ground
-    2300004: Water
-    3300000: Grass
-    3300002: Ground
-    3300004: Water
+    2100002: Grass
+    2100004: Ground
+    2300000: Ground
+    2300002: LeftGrass
+    2300004: RightGrass
+    2300006: Water
+    3300000: Ground
+    3300002: LeftGrass
+    3300004: RightGrass
+    3300006: Water
     4300000: Water
-    4300002: Ground
-    4300004: Grass
+    4300002: LeftGrass
+    4300004: Ground
+    4300006: RightGrass
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -54,13 +59,14 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 30
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -73,7 +79,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
@@ -81,6 +87,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
