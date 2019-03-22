@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
+  health: 20
 --- !u!54 &5369957994695629177
 Rigidbody:
   m_ObjectHideFlags: 0

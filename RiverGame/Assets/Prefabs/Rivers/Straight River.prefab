@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 33994823016172362}
   - component: {fileID: 23283856532560988}
   - component: {fileID: 114710829711543418}
+  - component: {fileID: 1607407165629644076}
   m_Layer: 2
   m_Name: OceanPlane
   m_TagString: Untagged
@@ -136,6 +137,19 @@ MonoBehaviour:
   refractLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!65 &1607407165629644076
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431466479925162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 100, y: 6.123235e-15, z: 100.000015}
+  m_Center: {x: 0, y: -0.2, z: -0.000009536743}
 --- !u!1 &1531639540851628
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class AIController : MonoBehaviour
 	[SerializeField] private int reward;
 	public void Update()
 	{
-		if (health == 0)
+		if (health <= 0)
 		{
 			if(tag.Equals("Enemy"))
 			{
@@ -45,7 +45,8 @@ public class AIController : MonoBehaviour
 
 	public void OnCollisionEnter(Collision other)
 	{
-		if (other.gameObject.CompareTag("Obstacle"))
+		if ((CompareTag("Player") && other.gameObject.CompareTag("Obstacle"))
+			|| (CompareTag("Enemy") && (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Obstacle"))))
 		{
 			ObstacleController obst = other.gameObject.GetComponent<ObstacleController>();
 			SetHealth(health - obst.GetDamage());

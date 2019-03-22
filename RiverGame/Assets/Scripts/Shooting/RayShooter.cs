@@ -7,7 +7,7 @@ public class RayShooter : MonoBehaviour
 	[SerializeField] private GameObject projectile;
 	[SerializeField] private float range;
 
-	private List<string> targets;
+	[SerializeField] private List<string> targets;
 
 	[SerializeField] private float interval;
 	private float time;
@@ -20,16 +20,20 @@ public class RayShooter : MonoBehaviour
 		targets = new List<string>();
 		if (CompareTag("Enemy"))
 		{
-			targets.Add("Selected");
-			targets.Add("Unselected");
-			targets.Add("Player");
+			SetTargets("Selected", "Unselected", "Player");
 		}
 		else
 		{
-			targets.Add("Enemy");
-			targets.Add("Enemy");
-			targets.Add("Enemy");
+			SetTargets("Enemy", "Enemy", "Enemy");
 		}
+	}
+
+	public void SetTargets(string t1, string t2, string t3)
+	{
+		targets = new List<string>();
+		targets.Add(t1);
+		targets.Add(t2);
+		targets.Add(t3);
 	}
 
 	public void Update()
@@ -56,6 +60,10 @@ public class RayShooter : MonoBehaviour
 			float x = target.x < transform.position.x ? -2f : 2f; 
 			pos = new Vector3(transform.position.x + x, transform.position.y + 1.5f, transform.position.z);
 			GameObject proj = Instantiate(projectile, pos, Quaternion.identity);
+			if (tag.Equals("Player"))
+			{
+				proj.tag = "Player";
+			}
 			proj.transform.localScale = new Vector3(1 / transform.localScale.x, 1 / transform.localScale.y, 1 / transform.localScale.z);
 			float accuracy = 10f - GetComponent<AIController>().GetAccuracy();
 			proj.GetComponent<ProjectileController>().SetTarget(new Vector3(target.x + Random.Range(-accuracy, accuracy),

@@ -109,7 +109,7 @@ MonoBehaviour:
   projectile: {fileID: 125635495781226029, guid: 7cea8c41bf90f5e4691e47d14affee50,
     type: 3}
   range: 13
-  interval: 1
+  interval: 2
 --- !u!114 &114103404667653268
 MonoBehaviour:
   m_ObjectHideFlags: 0

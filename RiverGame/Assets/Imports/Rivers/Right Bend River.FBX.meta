@@ -28,6 +28,10 @@ ModelImporter:
     4300002: LeftGrass
     4300004: Ground
     4300006: RightGrass
+    6400000: Ground
+    6400002: LeftGrass
+    6400004: RightGrass
+    6400006: Water
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -60,8 +64,8 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
-    addColliders: 0
+    meshCompression: 3
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
