@@ -17,7 +17,7 @@ public class ProjectileController : ObstacleController
 		}
 	}
 
-	public void Update()
+	public new void Update()
 	{
 		transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 		if(transform.position == target && gameObject != null)

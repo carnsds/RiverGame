@@ -17,7 +17,7 @@ public class ObstacleController : MonoBehaviour
 
 		if (health <= 0)
 		{
-			if(tag.Equals("Enemy"))
+			if(CompareTag("Enemy") || CompareTag("Obstacle"))
 			{
 				PlayerStats.points += 5;
 				GameObject.Find("Canvas").GetComponent<GUIController>().UpdateGUI();
@@ -47,9 +47,8 @@ public class ObstacleController : MonoBehaviour
 
 	public void OnCollisionEnter(Collision other)
 	{
-		if (other.gameObject.GetComponent<BoatController>() != null)
+		if (!CompareTag("Player") && other.gameObject.GetComponent<BoatController>() != null)
 		{
-			Debug.Log("Boat");
 			BoatController boat = other.gameObject.GetComponentInParent<BoatController>();
 			boat.SetHealth(boat.GetHealth() - damage);
 		}
@@ -59,6 +58,7 @@ public class ObstacleController : MonoBehaviour
 			ObstacleController obst = other.gameObject.GetComponent<ObstacleController>();
 			SetHealth(health - obst.GetDamage());
 		}
+		
 	}
 
 	public void SetDamage(int damage) {

@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 33475259814750136}
   - component: {fileID: 23969956984967512}
   m_Layer: 2
-  m_Name: Seat2
+  m_Name: Seat1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4286976529385714}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &33475259814750136
 MeshFilter:
@@ -225,9 +225,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4625782713578028}
   - {fileID: 4326862267196376}
   - {fileID: 4387976803449784}
+  - {fileID: 4625782713578028}
   m_Father: {fileID: 4864609295570232}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 33835253483130528}
   - component: {fileID: 23959345895645098}
   m_Layer: 2
-  m_Name: Seat1
+  m_Name: Seat0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,7 +261,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4286976529385714}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &33835253483130528
 MeshFilter:
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   defense: 100
-  speed: 3
+  speed: 5
   img: {fileID: 21300000, guid: 38d37d1917422f84ea40308b228e77c0, type: 3}
   crewMember: {fileID: 1779131611293246, guid: 70f2e58b66e16ed44b0b220521400756, type: 3}
 --- !u!54 &54184474773039576
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 33185508529755018}
   - component: {fileID: 23513930066010040}
   m_Layer: 2
-  m_Name: Seat0
+  m_Name: Seat2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,7 +420,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4286976529385714}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &33185508529755018
 MeshFilter:

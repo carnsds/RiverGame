@@ -14,18 +14,7 @@ public class RayShooter : MonoBehaviour
 
 	public void Start()
 	{
-		Vector3 pos = new Vector3 (transform.position.x + 10, transform.position.y, transform.position.z);
 		time = Time.time;
-
-		targets = new List<string>();
-		if (CompareTag("Enemy"))
-		{
-			SetTargets("Selected", "Unselected", "Player");
-		}
-		else
-		{
-			SetTargets("Enemy", "Enemy", "Enemy");
-		}
 	}
 
 	public void SetTargets(string t1, string t2, string t3)

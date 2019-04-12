@@ -33,14 +33,11 @@ public class BoatController : MonoBehaviour
 		Anchor();
 		GameObject.Find("Canvas").GetComponent<GUIController>().UpdateSelected();
 
-		int i = 0;
 		foreach (Transform t in transform.GetChild(SEATS_NUM).transform) {
-			GameObject member = Instantiate(crewMember, new Vector3(t.position.x, t.position.y + 1f, t.position.z), Quaternion.identity, transform.GetChild(CREW_NUM));
-			if (i == 0)
-			{
-				member.GetComponent<RayShooter>().SetTargets("Obstacle", "Obstacle", "Obstacle");
-			}
-			i++;
+			Instantiate(crewMember,
+						new Vector3(t.position.x, t.position.y + .1f, t.position.z),
+						Quaternion.identity,
+						transform.GetChild(CREW_NUM)).GetComponent<RayShooter>().SetTargets("Enemy", "Obstacle", "Obstacle");
 		}
 	}
 

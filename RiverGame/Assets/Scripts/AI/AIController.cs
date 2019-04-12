@@ -11,7 +11,7 @@ public class AIController : MonoBehaviour
 	{
 		if (health <= 0)
 		{
-			if(tag.Equals("Enemy"))
+			if(CompareTag("Enemy"))
 			{
 				PlayerStats.points += reward;
 				GameObject.Find("Canvas").GetComponent<GUIController>().UpdateGUI();
@@ -32,11 +32,13 @@ public class AIController : MonoBehaviour
 	}
 	
 	public IEnumerator TakeDamage() {
+		GetComponent<Animator>().SetBool("isHit", true);
 		Color oldColor = GetComponent<Renderer>().material.color;
 
 		GetComponent<Renderer>().material.color = Color.white;
 		yield return new WaitForSeconds(0.5f);
 		GetComponent<Renderer>().material.color = oldColor;
+		GetComponent<Animator>().SetBool("isHit", false);
 	} 
 
 	public float GetAccuracy() {

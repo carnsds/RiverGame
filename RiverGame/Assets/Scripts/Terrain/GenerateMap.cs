@@ -15,9 +15,10 @@ public class GenerateMap : MonoBehaviour
 
     void Start()
     {
+        //Create rivers
         for (int i = 0; i < amount; i++)
         {
-            int pickRiver = Random.Range(0, rivers.Length);
+            int pickRiver = Random.Range(0, 1);//rivers.Length);
             Instantiate(rivers[pickRiver],
                         new Vector3(xOffset,
                                     -1.5f,
@@ -34,7 +35,9 @@ public class GenerateMap : MonoBehaviour
                 xOffset -= 50;
             }
 
-            int placeSpawn = Random.Range(-50, 50);
+
+            //Enemy Spawner
+            int placeSpawn = pickRiver > 0 ? 50 : Random.Range(-50, 50);
             Instantiate(enemySpawn,
                         new Vector3(xOffset,
                                     -1.5f,
@@ -42,18 +45,21 @@ public class GenerateMap : MonoBehaviour
                         transform.rotation,
                         transform);
 
+            //Obstacle Spawner
             int obstacleAmount = Random.Range(5, 20);
             for (int j = 0; j < obstacleAmount; j++)
             {
+                int zLen = i != 0 ? Random.Range(-100, 100) : Random.Range(-25, 100);
                 int obstacle = Random.Range(0, 2);
                 Instantiate(obstacles[obstacle],
                             new Vector3(xOffset + Random.Range(-30, 30),
                                         -1f,
-                                        i * zOffset + Random.Range(-100, 100)),
+                                        i * zOffset + zLen),
                             obstacles[obstacle].transform.rotation,
                             transform);
             }
         }
+        //Finish Game
         Instantiate(endOfLevel,
                     new Vector3(xOffset,
                                 -1f,

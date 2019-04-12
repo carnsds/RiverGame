@@ -32,21 +32,23 @@ public class EnemySpawner : MonoBehaviour {
 			for (int i = 0; i < num_enemies && !hasSpawned; i++) {
 				int r = Random.Range(0, num_enemies);
 
-				Vector3 boatPos = other.transform.position;
-				Vector3 pos;
+				Vector3 pos, rot;
 				if (direction == DIRECTION.Right)
 				{
-					pos = new Vector3(Random.Range(-width - 20f, -width) + boatPos.x,
-									3.3f,
-									Random.Range(-length, length) + boatPos.z);
+					pos = new Vector3(Random.Range(-width - 20f, -width) + transform.position.x,
+									2.2f,
+									Random.Range(-length, length) + transform.position.z);
+					rot = new Vector3(0f, 90f, 0f);
 				}
 				else
 				{
-					pos = new Vector3(Random.Range(width, width + 20f) + boatPos.x,
-									3.3f,
-									Random.Range(-length, length) + boatPos.z);
+					pos = new Vector3(Random.Range(width, width + 20f) + transform.position.x,
+									2.2f,
+									Random.Range(-length, length) + transform.position.z);
+					rot = new Vector3(0f, -90f, 0f);
 				}
-				Instantiate(enemies[r], pos, Quaternion.Euler(transform.rotation.eulerAngles));
+				GameObject enemy = Instantiate(enemies[r], pos, Quaternion.Euler(rot));
+				enemy.GetComponent<RayShooter>().SetTargets("Selected", "Unselected", "Player");
 			}
 
 			hasSpawned = true;
