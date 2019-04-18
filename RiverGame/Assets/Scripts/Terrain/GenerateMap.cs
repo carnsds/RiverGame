@@ -18,7 +18,7 @@ public class GenerateMap : MonoBehaviour
         //Create rivers
         for (int i = 0; i < amount; i++)
         {
-            int pickRiver = Random.Range(0, 1);//rivers.Length);
+            int pickRiver = Random.Range(0, rivers.Length);
             Instantiate(rivers[pickRiver],
                         new Vector3(xOffset,
                                     -1.5f,
